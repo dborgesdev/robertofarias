@@ -10,6 +10,8 @@ A rota `/contato/` e a reformulação do CTA final/formulário foram autorizadas
 
 ## Arquitetura
 
+Atualização de 16/10/2026: o destino autorizado passou a ser Cloudflare Workers. `worker/index.ts` adapta o mesmo handler de contato para Request/Response; as regras de validação e o provedor permanecem iguais. Configurar os segredos no Worker `robertofarias` e `SITE_URL` no runtime e no build. A configuração anterior de Vercel descrita abaixo é alternativa histórica. Procedimento atual em `cloudflare-deploy.md`.
+
 - Home e Contato reutilizam `ContactForm`, incluindo campos, validação, envio e feedback.
 - Contato geral e consultas por livro usam `src/data/contact.ts`. O botão flutuante é único e recebe o contexto da página.
 - `/api/contact`: função Node em `api/contact.ts`, compatível com Vercel. As três páginas continuam pré-renderizadas e portáveis; apenas o envio de e-mail depende de execução serverless. Não há servidor React, banco de dados nem armazenamento próprio de mensagens.

@@ -6,7 +6,7 @@
 
 .timeline-heading {
   max-width: 700px;
-  margin-left: 52%;
+  margin-left: 53%;
   margin-bottom: 20px;
 }
 
@@ -22,20 +22,20 @@
 
 .timeline-layout {
   display: grid;
-  grid-template-columns: 1.1fr 1fr;
-  gap: 9%;
+  grid-template-columns: 1fr 1fr;
+  gap: 6%;
   align-items: start;
 }
 
 .timeline-visual {
   position: sticky;
   top: 8vh;
-  padding-top: 30px;
+  padding-top: 12px;
 }
 
 .timeline-images {
   height: min(66vh, 610px);
-  border: 12px solid #fff8eb;
+  border: 9px solid #fff8eb;
   box-shadow: 0 16px 35px #4c342c33;
   transform: rotate(-3deg);
   position: relative;
@@ -121,9 +121,9 @@
 }
 
 .timeline-chapters h3 {
-  font-size: clamp(2.4rem, 3.7vw, 3.6rem);
+  font-size: clamp(2.3rem, 3.2vw, 3.1rem);
   line-height: 1.03;
-  margin-bottom: 28px;
+  margin-bottom: 22px;
 }
 
 .timeline-number {
@@ -268,4 +268,20 @@
     height: 80%;
     width: 58%;
   }
+}
+
+.timeline-visual::before {
+  content: "";
+  position: absolute;
+  inset: 26px 8px 80px -12px;
+  background: #e5d8c1;
+  border: 1px solid #c9b99c;
+  transform: rotate(2deg);
+  z-index: -1;
+}
+.timeline-chapters > li > div { border-left: 1px solid #b9a88c; padding-left: 24px; }
+.timeline-chapters > li.is-active > div { border-left-color: var(--rust); }
+@media (max-width: 767px) {
+  .timeline-chapters > li > div { padding-left: 14px; }
+  .timeline-heading h2 { font-size: clamp(3rem, 11vw, 4rem); }
 }

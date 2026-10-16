@@ -27,9 +27,10 @@
 .book-cover-stage {
   position: relative;
   padding: 20px 90px 15px 0;
+  isolation: isolate;
 }
 .book-cover-stage > .book-object {
-  max-width: 365px;
+  max-width: 380px;
   margin: auto;
 }
 .book-cover-stage .handwritten {
@@ -54,8 +55,8 @@
   position: absolute;
   inset: 0;
   z-index: -2;
-  object-position: left center;
-  transform: scaleX(-1);
+  width: 60%;
+  object-position: 78% center;
 }
 .writing-origin:before {
   content: "";
@@ -63,9 +64,9 @@
   inset: 0;
   background: linear-gradient(
     90deg,
-    transparent 5%,
-    #f7f2e8dd 35%,
-    #f7f2e8f5 70%
+    transparent 12%,
+    #f7f2e8dd 38%,
+    #f7f2e8 66%
   );
   z-index: -1;
 }
@@ -85,7 +86,7 @@
   padding-block: 50px;
 }
 .reading-ideas:before {
-  background: #0c2a24eb;
+  background: linear-gradient(110deg, #0c2a24fa 35%, #0c2a24c9);
 }
 .reading-ideas > .container {
   display: grid;
@@ -112,7 +113,8 @@
 }
 .ideas-grid article {
   position: relative;
-  padding-left: 44px;
+  padding: 18px 0 18px 58px;
+  border-top: 1px solid #d9bf984d;
 }
 .ideas-grid article:last-child {
   grid-column: 1/-1;
@@ -121,13 +123,19 @@
 .idea-number {
   position: absolute;
   left: 0;
-  top: 2px;
+  top: 20px;
   font-family: "Cormorant Garamond", serif;
   color: #f3ae80;
-  font-size: 1.7rem;
+  font-size: 1.35rem;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #e8b17c88;
+  border-radius: 50%;
 }
 .ideas-grid h3 {
-  font-size: 1.65rem;
+  font-size: 1.8rem;
   margin-bottom: 12px;
 }
 .ideas-grid p {
@@ -175,8 +183,8 @@
 }
 .book-acquisition {
   background:
-    linear-gradient(90deg, #f7f2e8f2, #f7f2e8e6),
-    url("/images/editorial-paper-1536.webp") center/cover;
+    linear-gradient(90deg, #f7f2e8ed, #f7f2e8ce),
+    url("/images/editorial-writing-1536.webp") center/cover;
 }
 .book-acquisition > .container {
   display: grid;
@@ -188,7 +196,7 @@
   font-size: 3rem;
 }
 .book-acquisition .book-object {
-  max-width: 260px;
+  max-width: 275px;
   margin: auto;
 }
 .acquisition-copy h3 {
@@ -209,18 +217,21 @@
   border-color: #176842;
 }
 .other-book {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
   background:
-    linear-gradient(110deg, #e5e4ceee, #edf0e1eb),
-    url("/images/editorial-paper-1536.webp") center/cover;
+    linear-gradient(90deg, #f4efdfed 12%, #f4efdfb8 72%, #f4efdf44),
+    url("/images/editorial-writing-1536.webp") right center/cover;
 }
 .other-book > .container {
   display: grid;
-  grid-template-columns: 0.8fr 1.2fr;
-  gap: 80px;
+  grid-template-columns: 0.9fr 1.2fr;
+  gap: 65px;
   align-items: center;
 }
 .other-book .book-object {
-  max-width: 330px;
+  max-width: 390px;
   margin: auto;
 }
 .other-book h2 {
@@ -298,7 +309,7 @@
     display: none;
   }
   .book-hero h1 {
-    font-size: 3.8rem;
+    font-size: clamp(2.9rem, 12vw, 3.8rem);
   }
   .book-hero:before {
     background: linear-gradient(#071e1744, #0b241bd9 45%, #0b241bf2);
@@ -381,4 +392,46 @@
   .other-book h2 {
     font-size: 2.6rem;
   }
+}
+
+.book-cover-stage::before {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 90%;
+  height: 65px;
+  background: radial-gradient(ellipse, #06130ef2, transparent 69%);
+  z-index: -1;
+  transform: rotate(-4deg);
+}
+.book-hero > .art-scene { object-position: center bottom; }
+.book-cover-stage > .book-object {
+  filter: drop-shadow(20px 14px 10px #0008);
+  transform: perspective(1400px) rotateY(-12deg) rotateZ(1deg);
+}
+.acquisition-copy {
+  padding-left: 30px;
+  border-left: 1px solid #b7a486;
+}
+.book-acquisition .book-object {
+  filter: drop-shadow(12px 18px 10px #48361966);
+}
+.other-book::before {
+  content: "";
+  position: absolute;
+  inset: 27% 0 12% 27%;
+  background: linear-gradient(90deg, #c3cbb6, #dae0cecc 75%, transparent);
+  z-index: -1;
+}
+.other-book .book-object { transform: rotate(-3deg); }
+.other-book > .container > div:last-child { padding-block: 35px; }
+@media (max-width: 767px) {
+  .writing-origin > .art-scene { width: 100%; }
+  .writing-origin:before { background: linear-gradient(#f7f2e8f5 65%, #f7f2e844); }
+  .book-cover-stage::before { width: 100%; left: 0; bottom: -10px; }
+  .acquisition-copy { padding-left: 0; border-left: 0; border-top: 1px solid #b7a486; padding-top: 30px; }
+  .other-book::before { inset: 30% 0 0; background: linear-gradient(0deg, #d4dcc7, #d4dcc7b3 70%, transparent); }
+  .other-book .book-object { max-width: 290px; }
+  .other-book > .container > div:last-child { padding-block: 0; }
 }

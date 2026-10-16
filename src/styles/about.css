@@ -21,7 +21,7 @@
   font-size: 3.1rem;
 }
 .about-origins {
-  background: #f4eddf;
+  background: #f4eddf url("/images/editorial-paper-1536.webp") center/cover;
   padding-block: 60px;
 }
 .about-origins > .container {
@@ -30,7 +30,7 @@
 }
 .origins-album {
   position: relative;
-  min-height: 440px;
+  min-height: 460px;
   align-self: stretch;
   margin-left: -65px;
 }
@@ -45,13 +45,13 @@
 }
 .origins-album .memory-print {
   position: relative;
-  width: 64%;
+  width: 66%;
   margin: 15px 0 35px 35px;
   transform: rotate(-7deg);
 }
 .origins-album .memory-print img {
-  height: 330px;
-  object-position: center 80%;
+  height: 310px;
+  object-position: center 65%;
 }
 .origins-album .scene-credit {
   font-size: 0.8rem;
@@ -80,7 +80,9 @@
   margin-bottom: 35px;
 }
 .music-story {
-  padding-left: 30px;
+  padding: 25px 30px 12px;
+  border-left: 1px solid #d8bd9580;
+  background: #102a24c9;
 }
 .music-story h3 {
   font-size: 2.1rem;
@@ -151,7 +153,7 @@
 }
 .paths-album .memory-print:last-child {
   transform: rotate(7deg);
-  margin-top: 100px;
+  margin-top: 150px;
 }
 .paths-album img {
   height: 330px;
@@ -162,7 +164,9 @@
   font-size: 1.35rem;
 }
 .about-writing {
-  background: #efe4d2;
+  background:
+    linear-gradient(90deg, #f7f2e8f5, #f7f2e8ef 55%, transparent 75%),
+    url("/images/editorial-paper-1536.webp") left center/cover;
 }
 .about-writing > .container {
   grid-template-columns: 1.1fr 1fr;
@@ -239,7 +243,7 @@
     font-size: 2.6rem;
   }
   .origins-album {
-    min-height: 370px;
+    min-height: 410px;
     margin-left: -20px;
     margin-right: -20px;
   }
@@ -262,7 +266,7 @@
     margin-bottom: 30px;
   }
   .music-story {
-    padding-left: 0;
+    padding: 20px;
   }
   .about-youth {
     padding-bottom: 70px;
@@ -338,4 +342,32 @@
   .paths-album{align-items:start}
   .paths-album .memory-print:first-child{width:105%}
   .paths-album .memory-print:last-child{margin-top:200px}
+}
+
+.about-origins::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #f7f2e8db;
+  z-index: -1;
+}
+.about-youth > .art-scene { object-position: 22% center; opacity: 0.42; }
+.about-youth .about-prose { align-self: start; padding-top: 65px; }
+.about-education > .art-scene { object-position: center 63%; }
+.about-writing figure {
+  margin-block: -72px;
+}
+.about-writing .about-prose { padding-right: 24px; }
+.about-chapter .about-prose > .eyebrow {
+  padding-top: 16px;
+  border-top: 1px solid #b79e7680;
+  width: fit-content;
+}
+@media (max-width: 1100px) {
+  .about-writing figure { margin-block: -60px; }
+}
+@media (max-width: 767px) {
+  .about-youth .about-prose { padding-top: 0; }
+  .about-writing .about-prose { padding-right: 0; }
+  .about-writing figure { margin-block: 0 -52px; }
 }

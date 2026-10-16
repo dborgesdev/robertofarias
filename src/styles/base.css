@@ -73,6 +73,7 @@ em {
 }
 :focus-visible {
   outline: 3px solid #217fa4;
+  box-shadow: 0 0 0 6px #fff8ed;
   outline-offset: 6px;
 }
 ::selection {
@@ -87,7 +88,7 @@ em {
   padding-block: 72px;
 }
 .eyebrow {
-  font-size: 0.8rem;
+  font-size: 0.86rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
   font-weight: 600;
@@ -305,7 +306,7 @@ em {
     font-size: 1.85rem;
   }
   .eyebrow {
-    font-size: 0.78rem;
+    font-size: 0.84rem;
     letter-spacing: 0.11em;
   }
   .button {

@@ -3,7 +3,7 @@ import globals from "globals";
 import tseslint from "typescript-eslint";
 import hooks from "eslint-plugin-react-hooks";
 export default tseslint.config(
-  { ignores: ["dist", ".prerender", ".qa", "node_modules"] },
+  { ignores: ["dist", ".prerender", ".qa", ".wrangler", "node_modules"] },
   js.configs.recommended,
   ...tseslint.configs.recommended,
   {

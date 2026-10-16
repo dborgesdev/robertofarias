@@ -1,4 +1,3 @@
-import type { IncomingMessage, ServerResponse } from "node:http";
 import { createHash } from "node:crypto";
 import { contactEmail } from "../src/data/contact.js";
 import {
@@ -6,7 +5,18 @@ import {
   validateContact,
 } from "../src/lib/contactValidation.js";
 
-type ContactRequest = IncomingMessage & { body?: unknown };
+export interface ContactRequest {
+  method?: string;
+  headers: Record<string, string | string[] | undefined>;
+  body?: unknown;
+  socket?: { remoteAddress?: string };
+  [Symbol.asyncIterator](): AsyncIterator<Uint8Array>;
+}
+export interface ContactResponse {
+  statusCode: number;
+  setHeader(name: string, value: string): void;
+  end(body: string): void;
+}
 type Environment = Record<string, string | undefined>;
 const attempts = new Map<string, { count: number; resetAt: number }>();
 const subjects = {
@@ -16,7 +26,7 @@ const subjects = {
 };
 const maximumBytes = 12000;
 
-function json(res: ServerResponse, status: number, data: unknown) {
+function json(res: ContactResponse, status: number, data: unknown) {
   res.statusCode = status;
   res.setHeader("Content-Type", "application/json; charset=utf-8");
   res.setHeader("Cache-Control", "no-store");
@@ -66,7 +76,7 @@ function allowedOrigins(env: Environment) {
 export function createContactHandler(environment?: Environment) {
   return async function contactHandler(
     req: ContactRequest,
-    res: ServerResponse,
+    res: ContactResponse,
   ) {
     const env = environment || process.env;
     if (req.method !== "POST") {

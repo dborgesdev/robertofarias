@@ -1,4 +1,5 @@
 export { createContactHandler } from "../api/contact";
+export { default as worker } from "../worker/index";
 export {
   normalizeContact,
   validateContact,

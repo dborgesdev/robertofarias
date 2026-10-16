@@ -46,6 +46,8 @@ Credenciais não usam prefixo `VITE_` nem são exportadas ao cliente. Sem config
 
 ## Build e hospedagem
 
+**Destino aprovado em 16/10/2026: Cloudflare Workers, Worker `robertofarias`, conta `empreendedorsmart@gmail.com`.** O fluxo atual, configuração, variáveis e comandos estão em [docs/cloudflare-deploy.md](docs/cloudflare-deploy.md). `pnpm build` gera `dist/`; `pnpm preview:worker` testa no runtime Workers; `pnpm deploy:check` empacota sem publicar e `pnpm deploy:worker` publica. Somente a API de contato exige execução do Worker; páginas e mídia usam Static Assets. O texto Vercel abaixo documenta a alternativa anterior.
+
 `pnpm build` → `dist/`. `vercel.json` prepara as páginas estáticas e `api/contact.ts` como função Node. Em outra hospedagem, servir os index.html de cada diretório e providenciar runtime compatível para o endpoint; um servidor puramente estático mantém as páginas/WhatsApp, mas não realiza o envio do formulário por e-mail. Dev e preview Vite incluem o endpoint local com a mesma implementação.
 
 Sem domínio confirmado: `noindex, nofollow`, robots bloqueado, sitemap vazio. Na publicação autorizada, definir `SITE_URL` com a origem HTTPS real, sem caminho, e reconstruir; isso gera canonical, OG absoluto e sitemap das quatro páginas. Nenhum domínio foi presumido. Não usar fallback global de SPA: caminhos desconhecidos devem responder 404.

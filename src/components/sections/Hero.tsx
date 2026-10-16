@@ -2,7 +2,10 @@ import ArtScene from "../ui/ArtScene";
 import { ActionLink, Eyebrow } from "../ui/Editorial";
 export default function Hero() {
   return (
-    <section id="inicio" className="hero portrait-scene">
+    <section
+      id="inicio"
+      className="hero portrait-scene min-h-[calc(100vh-80px)]"
+    >
       <div className="portrait-landscape" data-hero="image">
         <ArtScene scene="portrait" eager />
       </div>
@@ -42,7 +45,6 @@ export default function Hero() {
       </div>
       <div className="hero-foot container">
         <a href="#uma-nova-fase">Continue a leitura ↓</a>
-        <span>Retrato original em composição artística</span>
       </div>
     </section>
   );

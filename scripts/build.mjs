@@ -2,6 +2,7 @@ import { build } from "vite";
 import { readFile, writeFile, mkdir, rm } from "node:fs/promises";
 import { resolve } from "node:path";
 import { pathToFileURL } from "node:url";
+import { execFileSync } from "node:child_process";
 await build();
 await build({ build: { ssr: "src/entry-server.tsx", outDir: ".prerender" } });
 const { render } = await import(
@@ -110,6 +111,13 @@ await writeFile(
 await writeFile(
   "dist/404.html",
   '<!doctype html><html lang="pt-BR"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><meta name="robots" content="noindex"><title>Página não encontrada | Roberto Farias</title><body style="font:20px Georgia;padding:10%;background:#f7f2e8;color:#25241f"><h1>Este caminho não foi encontrado.</h1><p><a href="/">Voltar ao site de Roberto Farias</a></p></body></html>',
+);
+await writeFile(
+  "dist/build-info.json",
+  JSON.stringify({
+    commit: execFileSync("git", ["rev-parse", "HEAD"], { encoding: "utf8" }).trim(),
+    builtAt: new Date().toISOString(),
+  }),
 );
 await rm(".prerender", { recursive: true, force: true });
 console.log(

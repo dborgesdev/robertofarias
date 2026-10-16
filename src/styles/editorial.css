@@ -2,18 +2,22 @@
   position: relative;
   isolation: isolate;
   overflow: clip;
-  background: #142c27;
+  background: #142c27 url("/images/symbolic-coast-1536.webp") center/cover;
   color: #fff8ed;
 }
 .portrait-landscape {
   position: absolute;
-  inset: 0;
+  inset: auto 0 0 auto;
+  width: 85%;
   z-index: -2;
+  mask-image: linear-gradient(90deg, transparent, black 28%);
 }
 .portrait-landscape img {
-  width: 110%;
+  width: 100%;
+  height: auto;
   max-width: none;
-  object-position: left center;
+  object-position: right bottom;
+  mask-image: linear-gradient(0deg, black 78%, transparent);
 }
 .portrait-scene:after {
   content: "";
@@ -21,21 +25,22 @@
   inset: 0;
   background: linear-gradient(
     90deg,
-    #061c21d9 0%,
-    #071f248c 33%,
-    transparent 57%
+    #061c21eb 0%,
+    #071f24ad 32%,
+    #071f2422 55%,
+    transparent 72%
   );
   z-index: -1;
 }
 .hero-stage {
-  min-height: 690px;
+  min-height: 640px;
   display: flex;
   align-items: center;
   position: relative;
-  padding-block: 65px 70px;
+  padding-block: 55px 60px;
 }
 .hero-copy {
-  width: 44%;
+  width: 46%;
   max-width: 570px;
 }
 .hero-copy h1 {
@@ -65,7 +70,7 @@
 .hero-note {
   position: absolute;
   right: 0;
-  top: 40px;
+  top: 32px;
   color: #3c3328;
   text-align: center;
   max-width: 190px;
@@ -90,7 +95,7 @@
   line-height: 1.05;
 }
 .about-hero .hero-stage {
-  min-height: 580px;
+  min-height: 550px;
 }
 .about-hero .hero-copy {
   width: 46%;
@@ -143,12 +148,12 @@
   z-index: -1;
 }
 .works {
-  padding-block: 64px 65px;
+  padding-block: 64px 80px;
 }
 .works-layout {
   display: grid;
-  grid-template-columns: 0.88fr 1.65fr;
-  gap: 60px;
+  grid-template-columns: 0.8fr 1.8fr;
+  gap: 48px;
   align-items: center;
 }
 .works-layout > header {
@@ -160,7 +165,7 @@
 .books-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 50px;
+  gap: 44px;
   align-items: start;
 }
 .book-card {
@@ -170,15 +175,17 @@
   display: flex;
   align-items: end;
   justify-content: center;
-  height: 435px;
-  margin-bottom: 35px;
+  height: 490px;
+  margin-bottom: 26px;
+  position: relative;
+  isolation: isolate;
 }
 .catalog-cover .book-object {
   width: 100%;
-  max-width: 275px;
+  max-width: 300px;
 }
 .book-1 .catalog-cover .book-object {
-  max-width: 330px;
+  max-width: 360px;
 }
 .catalog-copy h3 {
   font-size: 1.85rem;
@@ -187,26 +194,26 @@
   font-size: 1rem;
 }
 .catalog-copy .eyebrow {
-  font-size: 0.77rem;
+  font-size: 0.86rem;
 }
 .catalog-copy .text-link {
   font-size: 0.95rem;
 }
 .catalog-copy {
-  padding-top: 12px;
-  border-top: 1px solid #dcc6a44d;
+  padding: 22px 0 18px;
+  border-top: 1px solid #dcc6a470;
 }
 .gallery {
   position: relative;
   overflow: clip;
   background:
-    linear-gradient(90deg, #f7f2e8ed 35%, #f7f2e85c),
-    url("/images/editorial-paper-1536.webp") center/cover;
+    linear-gradient(90deg, #f7f2e8f5 30%, #f7f2e866),
+    url("/images/editorial-writing-1536.webp") center/cover;
 }
 .gallery > .container {
   display: grid;
-  grid-template-columns: 0.7fr 1.5fr;
-  gap: 45px;
+  grid-template-columns: 0.72fr 1.5fr;
+  gap: 64px;
   align-items: center;
 }
 .gallery h2 {
@@ -221,9 +228,9 @@
 .gallery-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  align-items: center;
-  gap: 0;
-  padding-block: 20px;
+  align-items: start;
+  gap: 26px;
+  padding-block: 30px 45px;
 }
 .life-photo {
   padding: 10px;
@@ -233,19 +240,19 @@
 }
 .life-photo-0 {
   transform: rotate(-7deg);
-  width: 125%;
+  width: 119%;
   z-index: 3;
   align-self: start;
   margin-top: 15px;
 }
 .life-photo-1 {
-  transform: rotate(-5deg);
+  transform: rotate(-3deg);
   z-index: 2;
-  margin-top: 100px;
+  margin-top: 150px;
 }
 .life-photo-2 {
-  transform: rotate(9deg);
-  margin-top: 35px;
+  transform: rotate(5deg);
+  margin-top: 55px;
 }
 .gallery-image {
   overflow: hidden;
@@ -263,8 +270,8 @@
 }
 .life-photo figcaption {
   padding: 14px 4px 4px;
-  font-size: 0.9rem;
-  line-height: 1.35;
+  font-size: 0.94rem;
+  line-height: 1.45;
 }
 .life-photo figcaption h3 {
   font-family: "Caveat", cursive;
@@ -524,18 +531,22 @@
 }
 @media (max-width: 767px) {
   .portrait-landscape {
-    height: 440px;
+    height: 330px;
+    width: 100%;
+    inset: 0 0 auto;
+    mask-image: none;
   }
   .portrait-landscape img {
     width: 100%;
-    object-position: 59% center;
+    height: 100%;
+    object-position: 62% center;
   }
   .portrait-scene:after {
-    background: linear-gradient(0deg, #142c27 0%, #142c27 52%, transparent 78%);
+    background: linear-gradient(0deg, #142c27 0%, #142c27 62%, transparent 85%);
   }
   .hero-stage {
     display: block;
-    padding-top: 350px;
+    padding-top: 285px;
     padding-bottom: 25px;
     min-height: 0;
   }
@@ -557,6 +568,7 @@
     top: 25px;
     right: 4px;
     width: 100px;
+    display: none;
     font-size: 1.35rem;
     color: #fff4dc;
     text-shadow: 0 1px 5px #000;
@@ -666,7 +678,7 @@
     height: 225px;
   }
   .life-photo figcaption {
-    font-size: 0.88rem;
+    font-size: 0.94rem;
   }
   .life-photo figcaption h3 {
     font-size: 1.5rem;
@@ -723,10 +735,14 @@
 }
 @media (min-width: 768px) and (max-width: 1100px) {
   .portrait-landscape {
-    height: 570px;
+    height: 430px;
+    width: 100%;
+    inset: 0 0 auto;
+    mask-image: none;
   }
   .portrait-landscape img {
     width: 100%;
+    height: 100%;
     object-position: 60% center;
   }
   .portrait-scene:after {
@@ -735,7 +751,7 @@
   .portrait-scene .hero-stage {
     display: block;
     min-height: 0;
-    padding-top: 450px;
+    padding-top: 355px;
     padding-bottom: 30px;
   }
   .portrait-scene .hero-copy {
@@ -757,3 +773,41 @@
   }
 }
 @media(max-width:1100px){.portrait-landscape img{mask-image:linear-gradient(black 78%,transparent 100%)}}
+
+/* A contact shadow anchors the intact covers to the rocky foreground. */
+.catalog-cover::before {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  width: 112%;
+  height: 44px;
+  background: radial-gradient(ellipse, #020f0ae0, transparent 70%);
+  z-index: -1;
+}
+.works > .art-scene { object-position: center bottom; }
+.works::before {
+  background: linear-gradient(90deg, #091f1ce8, #0c211c66 43%, #10292316),
+    linear-gradient(0deg, #10251fe8, transparent 43%);
+}
+.life-photo::before {
+  content: "";
+  position: absolute;
+  width: 62px;
+  height: 23px;
+  left: 35%;
+  top: -10px;
+  background: #d8c2998c;
+  transform: rotate(3deg);
+  z-index: 4;
+  box-shadow: 0 1px 3px #382f191a;
+}
+@media (max-width: 1100px) {
+  .portrait-scene { background: #142c27; }
+}
+@media (max-width: 767px) {
+  .catalog-cover .book-object { max-width: 270px; }
+  .catalog-copy { padding: 22px 0; }
+  .gallery-grid { gap: 16px; }
+  .life-photo-1 { margin-top: 25px; }
+  .life-photo-2 { margin-top: 160px; }
+}
