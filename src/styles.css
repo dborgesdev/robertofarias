@@ -1,0 +1,15 @@
+@import "tailwindcss";
+@import "./styles/base.css";
+@import "./styles/layout.css";
+@import "./styles/editorial.css";
+@import "./styles/timeline.css";
+@import "./styles/about.css";
+@import "./styles/book.css";
+@import "./styles/contact.css";
+@import "./styles/motion.css";
+@theme {
+  --color-paper: #f7f2e8;
+  --color-ink: #25241f;
+  --color-rust: #a63f21;
+  --font-sans: "Source Sans 3", sans-serif;
+}

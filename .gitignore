@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.prerender/
+.qa/
+.env
+.env.*
+!.env.example

@@ -1,0 +1,341 @@
+.about-chapter {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+}
+.about-chapter > .art-scene {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+}
+.about-chapter > .container {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 65px;
+  align-items: center;
+}
+.about-prose {
+  min-width: 0;
+}
+.about-prose h2 {
+  font-size: 3.1rem;
+}
+.about-origins {
+  background: #f4eddf;
+  padding-block: 60px;
+}
+.about-origins > .container {
+  grid-template-columns: 0.95fr 1.1fr 0.3fr;
+  gap: 40px;
+}
+.origins-album {
+  position: relative;
+  min-height: 440px;
+  align-self: stretch;
+  margin-left: -65px;
+}
+.origins-album > .art-scene,
+.origins-album > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  mask-image: linear-gradient(90deg, black 75%, transparent);
+}
+.origins-album .memory-print {
+  position: relative;
+  width: 64%;
+  margin: 15px 0 35px 35px;
+  transform: rotate(-7deg);
+}
+.origins-album .memory-print img {
+  height: 330px;
+  object-position: center 80%;
+}
+.origins-album .scene-credit {
+  font-size: 0.8rem;
+  left: 10px;
+  right: auto;
+}
+.margin-note {
+  font-size: 1.9rem;
+  align-self: center;
+}
+.about-youth {
+  padding-block: 70px;
+}
+.about-youth:before {
+  background: linear-gradient(90deg, #102a24f5, #102a24cf 48%, #102a2477);
+}
+.about-youth > .container {
+  grid-template-columns: 0.9fr 1.2fr;
+}
+.music-album {
+  min-width: 0;
+  align-self: center;
+}
+.music-album .memory-print {
+  transform: rotate(-3deg);
+  margin-bottom: 35px;
+}
+.music-story {
+  padding-left: 30px;
+}
+.music-story h3 {
+  font-size: 2.1rem;
+  color: #f4d4b4;
+}
+.music-story p {
+  font-size: 1rem;
+}
+.about-education {
+  min-height: 430px;
+  display: flex;
+  align-items: center;
+}
+.about-education:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #f7f2e8b8, transparent 70%);
+  z-index: -1;
+}
+.about-education > .container {
+  display: block;
+}
+.about-education .about-prose {
+  width: 45%;
+}
+.about-career {
+  min-height: 390px;
+  display: flex;
+  align-items: center;
+}
+.about-career > .container {
+  display: block;
+}
+.about-career .about-prose {
+  width: 45%;
+  margin-left: 55%;
+}
+.about-career:before {
+  background: linear-gradient(
+    90deg,
+    transparent 15%,
+    #102a2433 40%,
+    #102a24d9 65%
+  );
+}
+.about-paths {
+  background:
+    linear-gradient(90deg, #f7f2e8 40%, #f7f2e899),
+    url("/images/editorial-road-1536.webp") center/cover;
+  padding-block: 75px;
+}
+.about-paths > .container {
+  grid-template-columns: 0.9fr 1.2fr;
+}
+.paths-album {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 0;
+  padding: 15px 0;
+}
+.paths-album .memory-print:first-child {
+  width: 115%;
+  transform: rotate(-6deg);
+  z-index: 2;
+  margin-top: -50px;
+}
+.paths-album .memory-print:last-child {
+  transform: rotate(7deg);
+  margin-top: 100px;
+}
+.paths-album img {
+  height: 330px;
+  object-fit: cover;
+}
+.paths-album figcaption {
+  font-family: "Caveat", cursive;
+  font-size: 1.35rem;
+}
+.about-writing {
+  background: #efe4d2;
+}
+.about-writing > .container {
+  grid-template-columns: 1.1fr 1fr;
+}
+.about-writing figure {
+  grid-column: 2;
+  grid-row: 1;
+  align-self: stretch;
+  position: relative;
+  margin-right: -65px;
+  overflow: hidden;
+}
+.about-writing figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  mask-image: linear-gradient(90deg, transparent, black 20%);
+}
+.about-writing figure figcaption {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  background: #f7f2e8e8;
+  padding: 6px 12px;
+  font-size: 0.88rem;
+}
+.about-writing .about-prose {
+  grid-column: 1;
+  grid-row: 1;
+}
+.about-writing h2 {
+  font-size: 3.1rem;
+}
+.about-writing .about-prose p:last-child {
+  font-style: italic;
+}
+@media (max-width: 1100px) {
+  .about-chapter > .container {
+    gap: 35px;
+  }
+  .about-origins > .container {
+    grid-template-columns: 0.9fr 1.1fr;
+  }
+  .margin-note {
+    display: none;
+  }
+  .origins-album {
+    margin-left: -40px;
+  }
+  .about-prose h2,
+  .about-writing h2 {
+    font-size: 2.7rem;
+  }
+  .origins-album .memory-print {
+    width: 80%;
+    margin-left: 20px;
+  }
+  .paths-album img {
+    height: 270px;
+  }
+  .about-writing figure {
+    margin-right: -40px;
+  }
+}
+@media (max-width: 767px) {
+  .about-chapter > .container {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 35px;
+  }
+  .about-prose h2,
+  .about-writing h2 {
+    font-size: 2.6rem;
+  }
+  .origins-album {
+    min-height: 370px;
+    margin-left: -20px;
+    margin-right: -20px;
+  }
+  .origins-album .memory-print {
+    width: 58%;
+    margin: 0 0 30px 30px;
+  }
+  .origins-album .memory-print img {
+    height: 285px;
+  }
+  .origins-album .scene-credit {
+    bottom: 0;
+    left: 30px;
+  }
+  .about-origins {
+    padding-top: 35px;
+  }
+  .music-album .memory-print {
+    transform: rotate(-3deg);
+    margin-bottom: 30px;
+  }
+  .music-story {
+    padding-left: 0;
+  }
+  .about-youth {
+    padding-bottom: 70px;
+  }
+  .about-education {
+    padding-bottom: 260px;
+  }
+  .about-education .about-prose,
+  .about-career .about-prose {
+    width: 100%;
+    margin: 0;
+  }
+  .about-education > .art-scene {
+    object-position: right bottom;
+  }
+  .about-education:before {
+    background: linear-gradient(#f7f2e8ee 50%, transparent 90%);
+  }
+  .about-career {
+    padding-top: 260px;
+    padding-bottom: 70px;
+  }
+  .about-career:before {
+    background: linear-gradient(transparent 10%, #102a24f0 45%);
+  }
+  .about-career > .art-scene {
+    object-position: 25% top;
+  }
+  .about-paths > .container {
+    gap: 10px;
+  }
+  .paths-album {
+    padding: 30px 6px 15px;
+  }
+  .paths-album img {
+    height: 240px;
+  }
+  .paths-album .memory-print {
+    padding: 8px;
+  }
+  .paths-album .memory-print:first-child {
+    margin-top: 0;
+  }
+  .paths-album .memory-print:last-child {
+    margin-top: 100px;
+  }
+  .paths-album figcaption {
+    font-size: 1.2rem;
+  }
+  .about-writing figure {
+    order: 2;
+    height: 300px;
+    margin: 0 -20px -52px;
+    align-self: auto;
+  }
+  .about-writing figure img {
+    mask-image: linear-gradient(0deg, black 70%, transparent);
+  }
+  .about-writing figure figcaption {
+    right: 25px;
+  }
+  .about-writing .about-prose {
+    order: 1;
+  }
+  .about-education .scene-credit,
+  .about-career .scene-credit {
+    font-size: 0.83rem;
+    left: 20px;
+    right: auto;
+  }
+}
+@media(max-width:767px){
+  .paths-album{align-items:start}
+  .paths-album .memory-print:first-child{width:105%}
+  .paths-album .memory-print:last-child{margin-top:200px}
+}

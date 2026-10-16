@@ -1,0 +1,637 @@
+{
+  "date": "2026-10-15",
+  "branch": "codex/v1-site-roberto-farias",
+  "typecheck": "pass",
+  "lint": "pass",
+  "build": "pass, four prerendered routes",
+  "tests": {
+    "pass": 12,
+    "fail": 0
+  },
+  "layouts": {
+    "report": [
+      {
+        "path": "/",
+        "width": 1440,
+        "status": 200,
+        "overflow": false,
+        "h1": 1,
+        "brokenImages": [],
+        "title": "Roberto Farias | Escritor e autor de Ainda Tenho Estradas",
+        "float": "https://wa.me/5581999522510?text=Ol%C3%A1%2C%20Roberto!%20Conheci%20seu%20site%20e%20gostaria%20de%20conversar%20sobre%20seus%20livros.",
+        "clipped": []
+      },
+      {
+        "path": "/",
+        "width": 1024,
+        "status": 200,
+        "overflow": false,
+        "h1": 1,
+        "brokenImages": [],
+        "title": "Roberto Farias | Escritor e autor de Ainda Tenho Estradas",
+        "float": "https://wa.me/5581999522510?text=Ol%C3%A1%2C%20Roberto!%20Conheci%20seu%20site%20e%20gostaria%20de%20conversar%20sobre%20seus%20livros.",
+        "clipped": []
+      },
+      {
+        "path": "/",
+        "width": 768,
+        "status": 200,
+        "overflow": false,
+        "h1": 1,
+        "brokenImages": [],
+        "title": "Roberto Farias | Escritor e autor de Ainda Tenho Estradas",
+        "float": "https://wa.me/5581999522510?text=Ol%C3%A1%2C%20Roberto!%20Conheci%20seu%20site%20e%20gostaria%20de%20conversar%20sobre%20seus%20livros.",
+        "clipped": []
+      },
+      {
+        "path": "/",
+        "width": 375,
+        "status": 200,
+        "overflow": false,
+        "h1": 1,
+        "brokenImages": [],
+        "title": "Roberto Farias | Escritor e autor de Ainda Tenho Estradas",
+        "float": "https://wa.me/5581999522510?text=Ol%C3%A1%2C%20Roberto!%20Conheci%20seu%20site%20e%20gostaria%20de%20conversar%20sobre%20seus%20livros.",
+        "clipped": []
+      },
+      {
+        "path": "/",
+        "width": 320,
+        "status": 200,
+        "overflow": false,
+        "h1": 1,
+        "brokenImages": [],
+        "title": "Roberto Farias | Escritor e autor de Ainda Tenho Estradas",
+        "float": "https://wa.me/5581999522510?text=Ol%C3%A1%2C%20Roberto!%20Conheci%20seu%20site%20e%20gostaria%20de%20conversar%20sobre%20seus%20livros.",
+        "clipped": []
+      },
+      {
+        "path": "/livros/ainda-tenho-estradas/",
+        "width": 1440,
+        "status": 200,
+        "overflow": false,
+        "h1": 1,
+        "brokenImages": [],
+        "title": "Ainda Tenho Estradas | Livro de Roberto Farias",
+        "float": "https://wa.me/5581999522510?text=Ol%C3%A1%2C%20Roberto!%20Conheci%20seu%20site%20e%20gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20Ainda%20Tenho%20Estradas%2C%20disponibilidade%2C%20valor%20e%20entrega.",
+        "clipped": []
+      },
+      {
+        "path": "/livros/ainda-tenho-estradas/",
+        "width": 1024,
+        "status": 200,
+        "overflow": false,
+        "h1": 1,
+        "brokenImages": [],
+        "title": "Ainda Tenho Estradas | Livro de Roberto Farias",
+        "float": "https://wa.me/5581999522510?text=Ol%C3%A1%2C%20Roberto!%20Conheci%20seu%20site%20e%20gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20Ainda%20Tenho%20Estradas%2C%20disponibilidade%2C%20valor%20e%20entrega.",
+        "clipped": []
+      },
+      {
+        "path": "/livros/ainda-tenho-estradas/",
+        "width": 768,
+        "status": 200,
+        "overflow": false,
+        "h1": 1,
+        "brokenImages": [],
+        "title": "Ainda Tenho Estradas | Livro de Roberto Farias",
+        "float": "https://wa.me/5581999522510?text=Ol%C3%A1%2C%20Roberto!%20Conheci%20seu%20site%20e%20gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20Ainda%20Tenho%20Estradas%2C%20disponibilidade%2C%20valor%20e%20entrega.",
+        "clipped": []
+      },
+      {
+        "path": "/livros/ainda-tenho-estradas/",
+        "width": 375,
+        "status": 200,
+        "overflow": false,
+        "h1": 1,
+        "brokenImages": [],
+        "title": "Ainda Tenho Estradas | Livro de Roberto Farias",
+        "float": "https://wa.me/5581999522510?text=Ol%C3%A1%2C%20Roberto!%20Conheci%20seu%20site%20e%20gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20Ainda%20Tenho%20Estradas%2C%20disponibilidade%2C%20valor%20e%20entrega.",
+        "clipped": []
+      },
+      {
+        "path": "/livros/ainda-tenho-estradas/",
+        "width": 320,
+        "status": 200,
+        "overflow": false,
+        "h1": 1,
+        "brokenImages": [],
+        "title": "Ainda Tenho Estradas | Livro de Roberto Farias",
+        "float": "https://wa.me/5581999522510?text=Ol%C3%A1%2C%20Roberto!%20Conheci%20seu%20site%20e%20gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20Ainda%20Tenho%20Estradas%2C%20disponibilidade%2C%20valor%20e%20entrega.",
+        "clipped": []
+      },
+      {
+        "path": "/contato/",
+        "width": 1440,
+        "status": 200,
+        "overflow": false,
+        "h1": 1,
+        "brokenImages": [],
+        "title": "Contato | Converse com Roberto Farias",
+        "float": "https://wa.me/5581999522510?text=Ol%C3%A1%2C%20Roberto!%20Conheci%20seu%20site%20e%20gostaria%20de%20conversar%20sobre%20seus%20livros.",
+        "clipped": []
+      },
+      {
+        "path": "/contato/",
+        "width": 1024,
+        "status": 200,
+        "overflow": false,
+        "h1": 1,
+        "brokenImages": [],
+        "title": "Contato | Converse com Roberto Farias",
+        "float": "https://wa.me/5581999522510?text=Ol%C3%A1%2C%20Roberto!%20Conheci%20seu%20site%20e%20gostaria%20de%20conversar%20sobre%20seus%20livros.",
+        "clipped": []
+      },
+      {
+        "path": "/contato/",
+        "width": 768,
+        "status": 200,
+        "overflow": false,
+        "h1": 1,
+        "brokenImages": [],
+        "title": "Contato | Converse com Roberto Farias",
+        "float": "https://wa.me/5581999522510?text=Ol%C3%A1%2C%20Roberto!%20Conheci%20seu%20site%20e%20gostaria%20de%20conversar%20sobre%20seus%20livros.",
+        "clipped": []
+      },
+      {
+        "path": "/contato/",
+        "width": 375,
+        "status": 200,
+        "overflow": false,
+        "h1": 1,
+        "brokenImages": [],
+        "title": "Contato | Converse com Roberto Farias",
+        "float": "https://wa.me/5581999522510?text=Ol%C3%A1%2C%20Roberto!%20Conheci%20seu%20site%20e%20gostaria%20de%20conversar%20sobre%20seus%20livros.",
+        "clipped": []
+      },
+      {
+        "path": "/contato/",
+        "width": 320,
+        "status": 200,
+        "overflow": false,
+        "h1": 1,
+        "brokenImages": [],
+        "title": "Contato | Converse com Roberto Farias",
+        "float": "https://wa.me/5581999522510?text=Ol%C3%A1%2C%20Roberto!%20Conheci%20seu%20site%20e%20gostaria%20de%20conversar%20sobre%20seus%20livros.",
+        "clipped": []
+      },
+      {
+        "path": "/sobre/",
+        "width": 1440,
+        "status": 200,
+        "overflow": false,
+        "h1": 1,
+        "brokenImages": [],
+        "title": "Sobre o autor | A história de Roberto Farias",
+        "float": "https://wa.me/5581999522510?text=Ol%C3%A1%2C%20Roberto!%20Conheci%20seu%20site%20e%20gostaria%20de%20conversar%20sobre%20seus%20livros.",
+        "clipped": []
+      },
+      {
+        "path": "/sobre/",
+        "width": 1024,
+        "status": 200,
+        "overflow": false,
+        "h1": 1,
+        "brokenImages": [],
+        "title": "Sobre o autor | A história de Roberto Farias",
+        "float": "https://wa.me/5581999522510?text=Ol%C3%A1%2C%20Roberto!%20Conheci%20seu%20site%20e%20gostaria%20de%20conversar%20sobre%20seus%20livros.",
+        "clipped": []
+      },
+      {
+        "path": "/sobre/",
+        "width": 768,
+        "status": 200,
+        "overflow": false,
+        "h1": 1,
+        "brokenImages": [],
+        "title": "Sobre o autor | A história de Roberto Farias",
+        "float": "https://wa.me/5581999522510?text=Ol%C3%A1%2C%20Roberto!%20Conheci%20seu%20site%20e%20gostaria%20de%20conversar%20sobre%20seus%20livros.",
+        "clipped": []
+      },
+      {
+        "path": "/sobre/",
+        "width": 375,
+        "status": 200,
+        "overflow": false,
+        "h1": 1,
+        "brokenImages": [],
+        "title": "Sobre o autor | A história de Roberto Farias",
+        "float": "https://wa.me/5581999522510?text=Ol%C3%A1%2C%20Roberto!%20Conheci%20seu%20site%20e%20gostaria%20de%20conversar%20sobre%20seus%20livros.",
+        "clipped": []
+      },
+      {
+        "path": "/sobre/",
+        "width": 320,
+        "status": 200,
+        "overflow": false,
+        "h1": 1,
+        "brokenImages": [],
+        "title": "Sobre o autor | A história de Roberto Farias",
+        "float": "https://wa.me/5581999522510?text=Ol%C3%A1%2C%20Roberto!%20Conheci%20seu%20site%20e%20gostaria%20de%20conversar%20sobre%20seus%20livros.",
+        "clipped": []
+      }
+    ],
+    "errors": []
+  },
+  "timeline": {
+    "states": [
+      {
+        "active": 0,
+        "frames": 1,
+        "caption": "01 / 04Retrato atual e horizonte ilustrado",
+        "sticky": "sticky",
+        "top": 400.078125
+      },
+      {
+        "active": 1,
+        "frames": 1,
+        "caption": "02 / 04Banda Júpiter 4 · acervo pessoal",
+        "sticky": "sticky",
+        "top": 80
+      },
+      {
+        "active": 2,
+        "frames": 1,
+        "caption": "03 / 04Roberto Farias · retrato do autor",
+        "sticky": "sticky",
+        "top": 80
+      },
+      {
+        "active": 3,
+        "frames": 1,
+        "caption": "04 / 04O encontro com a escrita · ilustração conceitual",
+        "sticky": "sticky",
+        "top": 80
+      }
+    ],
+    "reverseScroll": true,
+    "singleActive": true,
+    "sticky": true,
+    "reducedMotion": true,
+    "mobileInlineFourImages": true,
+    "noJSFourChapters": true,
+    "aboutSixSections": true,
+    "aboutCanonicalRedirect": true,
+    "aboutNoJS": true,
+    "localResources": 21,
+    "allLocalResources200": true,
+    "seoFourRoutes": true,
+    "manualVideoPlayback": true,
+    "unknownRoute404": true
+  },
+  "forms": {
+    "clientValidation": true,
+    "firstErrorFocus": true,
+    "whatsappConfirmedAndEncoded": true,
+    "whatsappWasOpenedWithoutSending": true,
+    "emailActualWithoutCredentials": 503,
+    "emailAcceptedWithProviderMock": true,
+    "emailMissingIdRejected": true,
+    "rateLimitFeedback": true,
+    "dataPreserved": true,
+    "bookContext": true,
+    "menuCurrentPage": true,
+    "staticContactWithoutJS": true,
+    "errors": []
+  },
+  "video": {
+    "protectedFilesUnchanged": 8,
+    "playback": [
+      {
+        "width": 1440,
+        "route": "/",
+        "time": 0.541845
+      },
+      {
+        "width": 1440,
+        "route": "/livros/ainda-tenho-estradas/",
+        "time": 0.362786
+      },
+      {
+        "width": 375,
+        "route": "/",
+        "time": 0.339971
+      },
+      {
+        "width": 375,
+        "route": "/livros/ainda-tenho-estradas/",
+        "time": 0.337142
+      }
+    ],
+    "keyboardPlay": true,
+    "focusOnVideo": true,
+    "controlsPreserved": true,
+    "playFailureFallback": true,
+    "noAutoplay": true,
+    "noJSNativeControls": true,
+    "noJSChapters": true,
+    "errors": []
+  },
+  "motion": {
+    "hero": {
+      "calls": [
+        {
+          "tag": "DIV",
+          "hero": "image",
+          "time": 973.6000000014901,
+          "options": {
+            "duration": 900,
+            "delay": 0,
+            "easing": "cubic-bezier(0.22, 1, 0.36, 1)",
+            "fill": "backwards"
+          }
+        },
+        {
+          "tag": "DIV",
+          "hero": "eyebrow",
+          "time": 975.1000000014901,
+          "options": {
+            "duration": 620,
+            "delay": 0,
+            "easing": "cubic-bezier(0.22, 1, 0.36, 1)",
+            "fill": "backwards"
+          }
+        },
+        {
+          "tag": "SPAN",
+          "hero": "line",
+          "time": 975.2000000029802,
+          "options": {
+            "duration": 780,
+            "delay": 60,
+            "easing": "cubic-bezier(0.22, 1, 0.36, 1)",
+            "fill": "backwards"
+          }
+        },
+        {
+          "tag": "SPAN",
+          "hero": "line",
+          "time": 975.3000000044703,
+          "options": {
+            "duration": 780,
+            "delay": 145,
+            "easing": "cubic-bezier(0.22, 1, 0.36, 1)",
+            "fill": "backwards"
+          }
+        },
+        {
+          "tag": "EM",
+          "hero": "line",
+          "time": 975.3999999985099,
+          "options": {
+            "duration": 780,
+            "delay": 230,
+            "easing": "cubic-bezier(0.22, 1, 0.36, 1)",
+            "fill": "backwards"
+          }
+        },
+        {
+          "tag": "P",
+          "hero": "description",
+          "time": 975.6000000014901,
+          "options": {
+            "duration": 620,
+            "delay": 220,
+            "easing": "cubic-bezier(0.22, 1, 0.36, 1)",
+            "fill": "backwards"
+          }
+        },
+        {
+          "tag": "DIV",
+          "hero": "actions",
+          "time": 975.7000000029802,
+          "options": {
+            "duration": 620,
+            "delay": 300,
+            "easing": "cubic-bezier(0.22, 1, 0.36, 1)",
+            "fill": "backwards"
+          }
+        }
+      ],
+      "active": 8
+    },
+    "reveals": {
+      "calls": [
+        {
+          "tag": "HEADER",
+          "reveal": "rise",
+          "time": 1051.8000000044703,
+          "options": {
+            "duration": 720,
+            "delay": 0,
+            "easing": "cubic-bezier(0.22, 1, 0.36, 1)",
+            "fill": "backwards"
+          }
+        },
+        {
+          "tag": "A",
+          "reveal": "cover",
+          "time": 3180.7000000029802,
+          "options": {
+            "duration": 720,
+            "delay": 0,
+            "easing": "cubic-bezier(0.22, 1, 0.36, 1)",
+            "fill": "backwards"
+          }
+        },
+        {
+          "tag": "A",
+          "reveal": "cover",
+          "time": 3180.89999999851,
+          "options": {
+            "duration": 720,
+            "delay": 90,
+            "easing": "cubic-bezier(0.22, 1, 0.36, 1)",
+            "fill": "backwards"
+          }
+        },
+        {
+          "tag": "HEADER",
+          "reveal": "rise",
+          "time": 3287.60000000149,
+          "options": {
+            "duration": 720,
+            "delay": 0,
+            "easing": "cubic-bezier(0.22, 1, 0.36, 1)",
+            "fill": "backwards"
+          }
+        },
+        {
+          "tag": "HEADER",
+          "reveal": "rise",
+          "time": 3737.3000000044703,
+          "options": {
+            "duration": 720,
+            "delay": 0,
+            "easing": "cubic-bezier(0.22, 1, 0.36, 1)",
+            "fill": "backwards"
+          }
+        },
+        {
+          "tag": "DIV",
+          "reveal": "rise",
+          "time": 5037.60000000149,
+          "options": {
+            "duration": 720,
+            "delay": 0,
+            "easing": "cubic-bezier(0.22, 1, 0.36, 1)",
+            "fill": "backwards"
+          }
+        },
+        {
+          "tag": "DIV",
+          "reveal": "image",
+          "time": 5037.80000000447,
+          "options": {
+            "duration": 800,
+            "delay": 0,
+            "easing": "cubic-bezier(0.22, 1, 0.36, 1)",
+            "fill": "backwards"
+          }
+        },
+        {
+          "tag": "DIV",
+          "reveal": "image",
+          "time": 5037.89999999851,
+          "options": {
+            "duration": 800,
+            "delay": 0,
+            "easing": "cubic-bezier(0.22, 1, 0.36, 1)",
+            "fill": "backwards"
+          }
+        },
+        {
+          "tag": "FIGCAPTION",
+          "reveal": "rise",
+          "time": 5137.70000000298,
+          "options": {
+            "duration": 720,
+            "delay": 0,
+            "easing": "cubic-bezier(0.22, 1, 0.36, 1)",
+            "fill": "backwards"
+          }
+        },
+        {
+          "tag": "DIV",
+          "reveal": "image",
+          "time": 5137.89999999851,
+          "options": {
+            "duration": 800,
+            "delay": 0,
+            "easing": "cubic-bezier(0.22, 1, 0.36, 1)",
+            "fill": "backwards"
+          }
+        },
+        {
+          "tag": "FIGCAPTION",
+          "reveal": "rise",
+          "time": 5254.5,
+          "options": {
+            "duration": 720,
+            "delay": 0,
+            "easing": "cubic-bezier(0.22, 1, 0.36, 1)",
+            "fill": "backwards"
+          }
+        },
+        {
+          "tag": "FIGCAPTION",
+          "reveal": "rise",
+          "time": 5254.70000000298,
+          "options": {
+            "duration": 720,
+            "delay": 0,
+            "easing": "cubic-bezier(0.22, 1, 0.36, 1)",
+            "fill": "backwards"
+          }
+        },
+        {
+          "tag": "DIV",
+          "reveal": "rise",
+          "time": 5687.60000000149,
+          "options": {
+            "duration": 720,
+            "delay": 0,
+            "easing": "cubic-bezier(0.22, 1, 0.36, 1)",
+            "fill": "backwards"
+          }
+        },
+        {
+          "tag": "DIV",
+          "reveal": "image",
+          "time": 5687.80000000447,
+          "options": {
+            "duration": 800,
+            "delay": 0,
+            "easing": "cubic-bezier(0.22, 1, 0.36, 1)",
+            "fill": "backwards"
+          }
+        }
+      ],
+      "parallax": "matrix(1.045, 0, 0, 1.045, 0, -12)",
+      "hidden": 0
+    },
+    "replay": 14,
+    "preferenceChange": {
+      "active": 0,
+      "opacity": "1"
+    },
+    "reducedResult": {
+      "active": 0,
+      "scroll": "auto",
+      "text": "A vida ainda tem\nmuitas páginas\npor escrever.",
+      "opacity": "1",
+      "parallax": "none"
+    },
+    "fallback": {
+      "h1": "A vida ainda tem\nmuitas páginas\npor escrever.",
+      "opacity": "1",
+      "cta": true
+    },
+    "failErrors": [],
+    "errors": []
+  },
+  "portraitAndFocus": [
+    {
+      "route": "/",
+      "width": 375,
+      "overflow": false,
+      "focusOutline": "3px",
+      "mask": "linear-gradient(rgb(0, 0, 0) 78%, rgba(0, 0, 0, 0))"
+    },
+    {
+      "route": "/",
+      "width": 768,
+      "overflow": false,
+      "focusOutline": "3px",
+      "mask": "linear-gradient(rgb(0, 0, 0) 78%, rgba(0, 0, 0, 0))"
+    },
+    {
+      "route": "/",
+      "width": 1024,
+      "overflow": false,
+      "focusOutline": "3px",
+      "mask": "linear-gradient(rgb(0, 0, 0) 78%, rgba(0, 0, 0, 0))"
+    },
+    {
+      "route": "/sobre/",
+      "width": 375,
+      "overflow": false,
+      "focusOutline": "3px",
+      "mask": "linear-gradient(rgb(0, 0, 0) 78%, rgba(0, 0, 0, 0))"
+    },
+    {
+      "route": "/sobre/",
+      "width": 768,
+      "overflow": false,
+      "focusOutline": "3px",
+      "mask": "linear-gradient(rgb(0, 0, 0) 78%, rgba(0, 0, 0, 0))"
+    },
+    {
+      "route": "/sobre/",
+      "width": 1024,
+      "overflow": false,
+      "focusOutline": "3px",
+      "mask": "linear-gradient(rgb(0, 0, 0) 78%, rgba(0, 0, 0, 0))"
+    }
+  ]
+}
