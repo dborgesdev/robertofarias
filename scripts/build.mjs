@@ -9,7 +9,8 @@ const { render } = await import(
   pathToFileURL(resolve(".prerender/entry-server.js"))
 );
 const template = await readFile("dist/index.html", "utf8");
-const domain = process.env.SITE_URL?.replace(/\/$/, "");
+const deployment = JSON.parse(await readFile("wrangler.json", "utf8"));
+const domain = (process.env.SITE_URL ?? deployment.vars?.SITE_URL)?.replace(/\/$/, "");
 if (domain && !/^https:\/\/[^/]+$/.test(domain))
   throw new Error("SITE_URL deve ser uma origem HTTPS, sem caminho.");
 const pages = [

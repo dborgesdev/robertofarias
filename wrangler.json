@@ -7,6 +7,9 @@
   "compatibility_flags": ["nodejs_compat"],
   "workers_dev": true,
   "preview_urls": false,
+  "vars": {
+    "SITE_URL": "https://robertofarias.smartlocal.workers.dev"
+  },
   "assets": {
     "directory": "./dist",
     "binding": "ASSETS",
