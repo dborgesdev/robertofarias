@@ -1,0 +1,423 @@
+.contact-conversation {
+  position: relative;
+  background:
+    linear-gradient(90deg, #f7f2e8ee 0%, #f7f2e8ee 76%, #f7f2e855),
+    url("/images/editorial-writing-1536.webp") center/cover;
+  color: var(--ink);
+}
+.contact-conversation > .container {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 25px 65px;
+  padding-right: 8%;
+}
+.conversation-heading {
+  grid-column: 1;
+  grid-row: 1;
+}
+.conversation-heading h2 {
+  font-size: 3.1rem;
+}
+.conversation-heading > p {
+  margin-top: 20px;
+}
+.conversation-body {
+  display: contents;
+}
+.contact-form {
+  grid-column: 2;
+  grid-row: 1/3;
+}
+.contact-addresses {
+  grid-column: 1;
+  grid-row: 2;
+}
+.contact-address-label {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.6rem;
+  line-height: 1.15;
+}
+.contact-addresses > a {
+  position: relative;
+  display: block;
+  overflow-wrap: anywhere;
+  padding: 12px 25px 12px 0;
+  border-bottom: 1px solid #c9bca8;
+  font-size: 1rem;
+}
+.contact-addresses > a > span:first-child {
+  display: block;
+  font-size: 0.82rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #71543d;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.contact-addresses > a > span:last-child {
+  position: absolute;
+  right: 0;
+  bottom: 15px;
+}
+.contact-addresses > .small-note {
+  font-size: 0.94rem;
+}
+.contact-conversation > .scene-credit {
+  font-size: 0.9rem;
+}
+.contact-form {
+  min-width: 0;
+}
+.contact-form fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+.form-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+.field-message {
+  grid-column: 1 / -1;
+}
+.form-field label {
+  display: block;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+.form-field input,
+.form-field textarea {
+  display: block;
+  width: 100%;
+  font: inherit;
+  font-size: 18px;
+  color: #25241f;
+  background: #fffcf7;
+  border: 1px solid #aa987e;
+  border-radius: 0;
+  padding: 13px 15px;
+  min-height: 54px;
+}
+.form-field textarea {
+  resize: vertical;
+  min-height: 165px;
+}
+.form-field [aria-invalid="true"] {
+  border-color: #9c2e21;
+  border-width: 2px;
+}
+.form-field :focus-visible {
+  outline: 3px solid #267189;
+  outline-offset: 3px;
+}
+.field-error {
+  color: #8c271e;
+  font-size: 0.95rem;
+  margin: 8px 0 0;
+}
+.form-hint,
+.form-privacy {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: #5c574c;
+}
+.form-hint {
+  margin-top: 18px;
+}
+.form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 25px;
+}
+.form-actions .button {
+  cursor: pointer;
+  justify-content: center;
+  gap: 14px;
+}
+.form-actions .button svg {
+  flex: none;
+  width: 22px;
+  height: 22px;
+}
+.contact-conversation .button-whatsapp {
+  background: #176842;
+  color: #fff;
+  border-color: #176842;
+}
+.contact-conversation .button-whatsapp:hover {
+  background: #105334;
+}
+.contact-conversation .button-email {
+  background: transparent;
+  color: #25241f;
+  border-color: #70664f;
+}
+.contact-conversation .button-email:hover {
+  background: #e0d4c0;
+}
+.contact-form [disabled] {
+  opacity: 0.75;
+}
+.contact-form button:disabled {
+  cursor: wait;
+}
+.form-privacy {
+  margin-top: 18px;
+  margin-bottom: 0;
+  max-width: 650px;
+}
+.form-feedback p {
+  font-size: 1rem;
+  padding: 16px 18px;
+  margin: 22px 0 0;
+  border-left: 3px solid currentColor;
+  background: #fffcf7;
+}
+.feedback-error {
+  color: #802c20;
+}
+.feedback-success,
+.feedback-whatsapp {
+  color: #205c3f;
+}
+.form-feedback a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  overflow-wrap: anywhere;
+}
+.form-trap {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.whatsapp-floating {
+  position: fixed;
+  z-index: 50;
+  right: max(24px, env(safe-area-inset-right));
+  bottom: calc(24px + env(safe-area-inset-bottom));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 60px;
+  padding: 16px 21px;
+  border-radius: 40px;
+  background: #176842;
+  color: #fff;
+  box-shadow: 0 5px 22px #15291a33;
+  border: 2px solid #fff;
+  font-weight: 600;
+  line-height: 1.2;
+  font-size: 0.95rem;
+  transition:
+    background-color 0.2s,
+    transform 0.3s var(--ease);
+}
+.whatsapp-floating svg {
+  width: 26px;
+  height: 26px;
+}
+.whatsapp-floating:hover {
+  transform: translateY(-3px);
+  background: #105334;
+}
+.whatsapp-floating:focus-visible {
+  outline: 3px solid #175e83;
+  outline-offset: 4px;
+}
+.site-footer {
+  padding-bottom: 85px;
+}
+.contact-hero {
+  padding-block: 70px 80px;
+  background: #253027;
+  color: #fff5e8;
+  overflow: clip;
+}
+.contact-hero > .container {
+  display: grid;
+  grid-template-columns: 1.4fr 0.6fr;
+  gap: 70px;
+  align-items: center;
+}
+.contact-hero .eyebrow {
+  color: #e9b697;
+}
+.contact-hero h1 {
+  font-size: clamp(3.5rem, 6.4vw, 6rem);
+}
+.contact-hero h1 em {
+  color: #e9b697;
+}
+.contact-hero p:not(.eyebrow) {
+  max-width: 600px;
+  color: #e5e6dc;
+}
+.contact-hero .text-link:hover {
+  color: #e9b697;
+}
+.contact-hero figure {
+  align-self: end;
+  padding-bottom: 15px;
+}
+.contact-hero figure img {
+  width: 100%;
+  height: 390px;
+  object-fit: cover;
+  object-position: 50% 85%;
+}
+.contact-hero figcaption {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.35rem;
+  font-style: italic;
+  margin-top: 14px;
+}
+@media (max-width: 1100px) {
+  .contact-hero > .container {
+    gap: 40px;
+  }
+  .contact-hero figure img {
+    height: 350px;
+  }
+}
+@media (min-width: 768px) and (max-width: 900px) {
+  .contact-hero > .container {
+    grid-template-columns: 1fr 0.55fr;
+    gap: 25px;
+  }
+  .contact-hero h1 {
+    font-size: 3.6rem;
+  }
+}
+@media (max-width: 767px) {
+  .form-fields {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+  .field-message {
+    grid-column: auto;
+  }
+  .form-actions {
+    flex-direction: column;
+  }
+  .form-actions .button {
+    width: 100%;
+    min-height: 56px;
+    font-size: 1rem;
+    gap: 15px;
+  }
+  .whatsapp-floating {
+    right: 16px;
+    bottom: calc(18px + env(safe-area-inset-bottom));
+    width: 60px;
+    height: 60px;
+    padding: 14px;
+  }
+  .whatsapp-floating span {
+    display: none;
+  }
+  .whatsapp-floating svg {
+    width: 28px;
+    height: 28px;
+  }
+  .site-footer {
+    padding-bottom: 90px;
+  }
+  .contact-hero {
+    padding-block: 45px 48px;
+  }
+  .contact-hero > .container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: stretch;
+  }
+  .contact-hero h1 {
+    font-size: clamp(3rem, 12.5vw, 4rem);
+  }
+  .contact-hero figure {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 20px;
+    align-items: end;
+    align-self: auto;
+    padding: 0;
+  }
+  .contact-hero figure img {
+    height: 190px;
+    object-position: 50% 90%;
+  }
+  .contact-hero figcaption {
+    font-size: 1.45rem;
+    margin-bottom: 10px;
+  }
+}
+@media (max-width: 374px) {
+  .contact-hero h1 {
+    font-size: 2.8rem;
+  }
+  .contact-hero figure {
+    grid-template-columns: 125px 1fr;
+    gap: 18px;
+  }
+  .contact-hero figure img {
+    height: 170px;
+  }
+  .contact-hero figcaption {
+    font-size: 1.25rem;
+  }
+  .whatsapp-floating {
+    width: 56px;
+    height: 56px;
+    right: 12px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .whatsapp-floating,
+  .whatsapp-floating:hover {
+    transition: none;
+    transform: none;
+  }
+}
+
+@media (max-width: 1100px) {
+  .contact-conversation > .container {
+    gap: 25px 40px;
+    padding-right: 4%;
+  }
+}
+@media (max-width: 900px) {
+  .contact-conversation > .container {
+    display: block;
+    padding: 0;
+  }
+  .conversation-heading h2 {
+    font-size: 2.8rem;
+  }
+  .conversation-heading {
+    margin-bottom: 30px;
+  }
+  .contact-conversation {
+    background:
+      linear-gradient(#f7f2e8ed, #f7f2e8e8),
+      url("/images/editorial-writing-768.webp") center/cover;
+  }
+  .conversation-body {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+  .contact-form {
+    order: 0;
+  }
+  .contact-addresses {
+    order: 1;
+  }
+}
