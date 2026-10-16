@@ -27,10 +27,15 @@ Prévia com `pnpm preview:worker` em `http://127.0.0.1:8787/`, usando workerd e 
 - GET `/api/contact`: HTTP 405; POST sem configuração: HTTP 503 verdadeiro, sem falso sucesso.
 - Navegador Chromium integrado: quatro rotas × desktop 1440 e mobile 375 px, sem overflow, imagens quebradas ou erros/avisos de console nas verificações. Os refinamentos anteriores também têm QA de 20 layouts em `qa-visual-refinement.md`.
 
-## Pendências para a conclusão
+## Primeira publicação e pendências externas
 
-GitHub Actions só pode ser validado após o PR. URL pública, hash integrado e versão de deploy devem ser registrados após merge/deploy reais, seguidos por QA em produção. Não declarar publicação antes disso.
+PR #1: https://github.com/dborgesdev/robertofarias/pull/1. Todos os passos de Validate production build passaram (execução 38912881510). Merge em main: `bb449cbac23e40198e4a3f66b32ce85a45cbe01c`. Primeiro deploy: Worker `robertofarias`, URL https://robertofarias.smartlocal.workers.dev, versão `cf7a6b5e-6708-492a-8c0b-30d36bf0a528`.
 
-Credenciais Resend e remetente verificado não foram fornecidos. O envio pelo formulário permanece indisponível com feedback verdadeiro e alternativas de WhatsApp/mailto. A URL definitiva ainda não foi retornada pelo Cloudflare; até confirmá-la, o build mantém noindex e sitemap sem URLs presumidas.
+Credenciais Resend e remetente verificado não foram fornecidos. O envio pelo formulário permanece indisponível com feedback verdadeiro e alternativas de WhatsApp/mailto. A URL retornada pelo Cloudflare foi registrada como origem de runtime e build para habilitar canonical, robots e sitemap públicos, sem alterar DNS de domínios existentes.
 
 Limites: sem envio real de e-mail/WhatsApp, teste em aparelho físico ou certificação WCAG. Aprovação visual registrada pelo usuário; fatos e demais pendências editoriais/comerciais continuam conforme a auditoria.
+
+
+## QA da primeira URL pública
+
+As quatro rotas foram abertas diretamente em HTTPS no navegador Chromium, em 1440 e 375 px: um H1 por página, sem overflow, imagens quebradas ou erros de runtime. O formulário com dados de teste recebeu a indisponibilidade esperada do serviço de e-mail e preservou os campos com alternativa mailto; não houve envio real ao provedor. A consulta HTTP automatizada com Python recebeu bloqueio Cloudflare 1010, enquanto o navegador real abriu normalmente; as verificações públicas usam o navegador sem alterar as proteções da conta. O commit e a versão finais devem ser conferidos por build-info e pelo histórico após o último deploy.
