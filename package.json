@@ -14,8 +14,8 @@
     "preview": "vite preview --host 127.0.0.1",
     "test": "node scripts/test.mjs",
     "preview:worker": "wrangler dev --local --port 8787",
-    "deploy:check": "wrangler deploy --dry-run --outdir .qa/worker",
-    "deploy:worker": "wrangler deploy"
+    "deploy:check": "node scripts/check-seo.mjs && wrangler deploy --dry-run --outdir .qa/worker",
+    "deploy:worker": "node scripts/check-seo.mjs && wrangler deploy"
   },
   "dependencies": {
     "@fontsource/caveat": "^5.3.0",

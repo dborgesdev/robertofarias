@@ -1,0 +1,50 @@
+import assert from "node:assert/strict";
+import { readFile, access } from "node:fs/promises";
+
+const config = JSON.parse(await readFile("wrangler.json", "utf8"));
+const origin = config.vars.SITE_URL;
+assert.equal(new URL(origin).origin, origin);
+assert.equal(new URL(origin).protocol, "https:");
+const routes = ["/", "/sobre/", "/contato/", "/livros/ainda-tenho-estradas/"];
+const titles = new Set();
+const descriptions = new Set();
+for (const route of routes) {
+  const html = await readFile(`dist${route}index.html`, "utf8");
+  const meta = (key) => html.match(new RegExp(`<meta (?:name|property)="${key}" content="([^"]*)"`))?.[1];
+  assert.ok(!/noindex|nofollow/i.test(html), `${route}: indexação bloqueada`);
+  assert.equal(html.match(/<link rel="canonical" href="([^"]*)"/)?.[1], origin + route);
+  assert.equal(meta("og:url"), origin + route);
+  const title = html.match(/<title>(.*?)<\/title>/)?.[1];
+  const description = meta("description");
+  assert.ok(title && description);
+  titles.add(title);
+  descriptions.add(description);
+  assert.equal(meta("twitter:card"), "summary_large_image");
+  assert.equal(meta("twitter:title"), title);
+  assert.equal(meta("twitter:description"), description);
+  assert.equal(meta("og:title"), title);
+  assert.equal(meta("og:description"), description);
+  const image = new URL(meta("og:image"));
+  assert.equal(image.origin, origin);
+  assert.equal(meta("twitter:image"), image.href);
+  await access(`dist${image.pathname}`);
+  const schema = JSON.parse(html.match(/<script type="application\/ld\+json">(.*?)<\/script>/s)?.[1]);
+  assert.equal(schema["@context"], "https://schema.org");
+  assert.equal(schema.url, origin + route);
+  assert.ok(schema["@id"].startsWith(origin + "/"));
+  for (const entity of [schema.about, schema.author].filter(Boolean))
+    assert.equal(entity["@id"], origin + "/#autor");
+  assert.ok(!/"(?:offers|aggregateRating|review|isbn)"/.test(JSON.stringify(schema)));
+  assert.ok(html.includes('href="/favicon.svg"'));
+}
+assert.equal(titles.size, routes.length);
+assert.equal(descriptions.size, routes.length);
+await access("dist/favicon.svg");
+const robots = await readFile("dist/robots.txt", "utf8");
+assert.ok(!/Disallow:\s*\//i.test(robots), "robots bloqueia indexação");
+assert.ok(robots.includes("Allow: /"));
+assert.ok(robots.includes(`Sitemap: ${origin}/sitemap.xml`));
+const sitemap = await readFile("dist/sitemap.xml", "utf8");
+const locations = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map((match) => match[1]);
+assert.deepEqual(locations.sort(), routes.map((route) => origin + route).sort());
+console.log(`SEO verificado: quatro páginas, robots, sitemap, JSON-LD e imagens em ${origin}`);

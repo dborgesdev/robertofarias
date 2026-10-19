@@ -11,8 +11,10 @@ const { render } = await import(
 const template = await readFile("dist/index.html", "utf8");
 const deployment = JSON.parse(await readFile("wrangler.json", "utf8"));
 const domain = (process.env.SITE_URL ?? deployment.vars?.SITE_URL)?.replace(/\/$/, "");
-if (domain && !/^https:\/\/[^/]+$/.test(domain))
+if (!domain || !/^https:\/\/[a-z0-9.-]+$/i.test(domain))
   throw new Error("SITE_URL deve ser uma origem HTTPS, sem caminho.");
+if (domain !== deployment.vars.SITE_URL)
+  throw new Error("SITE_URL do build deve coincidir com wrangler.json.");
 const pages = [
   {
     path: "/sobre/",
@@ -88,8 +90,15 @@ const escape = (value) =>
     .replaceAll('"', "&quot;")
     .replaceAll("<", "&lt;");
 for (const page of pages) {
-  const image = `${domain || ""}${page.image}`;
-  const meta = `<title>${page.title}</title><meta name="description" content="${escape(page.description)}"/><meta property="og:locale" content="pt_BR"/><meta property="og:type" content="${page.schema["@type"] === "Book" ? "book" : "website"}"/><meta property="og:site_name" content="Roberto Farias"/><meta property="og:title" content="${page.title}"/><meta property="og:description" content="${escape(page.description)}"/><meta property="og:image" content="${image}"/><meta property="og:image:alt" content="${page.schema["@type"] === "Book" ? "Capa de Ainda Tenho Estradas" : "Retrato de Roberto Farias"}"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="${page.title}"/><meta name="twitter:description" content="${escape(page.description)}"/><meta name="twitter:image" content="${image}"/>${domain ? `<link rel="canonical" href="${domain}${page.path}"/><meta property="og:url" content="${domain}${page.path}"/>` : '<meta name="robots" content="noindex, nofollow"/>'}<script type="application/ld+json">${JSON.stringify(page.schema)}</script>`;
+  const personId = `${domain}/#autor`;
+  page.schema.url = `${domain}${page.path}`;
+  page.schema["@id"] = page.schema["@type"] === "Person"
+    ? personId
+    : `${domain}${page.path}#${page.schema["@type"] === "Book" ? "livro" : "pagina"}`;
+  if (page.schema.about) page.schema.about["@id"] = personId;
+  if (page.schema.author) page.schema.author["@id"] = personId;
+  const image = `${domain}${page.image}`;
+  const meta = `<title>${page.title}</title><meta name="description" content="${escape(page.description)}"/><meta property="og:locale" content="pt_BR"/><meta property="og:type" content="${page.schema["@type"] === "Book" ? "book" : "website"}"/><meta property="og:site_name" content="Roberto Farias"/><meta property="og:title" content="${page.title}"/><meta property="og:description" content="${escape(page.description)}"/><meta property="og:image" content="${image}"/><meta property="og:image:alt" content="${page.schema["@type"] === "Book" ? "Capa de Ainda Tenho Estradas" : "Retrato de Roberto Farias"}"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="${page.title}"/><meta name="twitter:description" content="${escape(page.description)}"/><meta name="twitter:image" content="${image}"/><link rel="canonical" href="${domain}${page.path}"/><meta property="og:url" content="${domain}${page.path}"/><script type="application/ld+json">${JSON.stringify(page.schema)}</script>`;
   await mkdir(resolve(page.file, ".."), { recursive: true });
   await writeFile(
     page.file,
@@ -98,16 +107,14 @@ for (const page of pages) {
       .replace("<!--app-->", render(page.path)),
   );
 }
-// A prévia sem domínio não publica URLs fictícias e fica fora dos índices.
+// Robots e sitemap são gerados somente com a origem confirmada e validada.
 await writeFile(
   "dist/robots.txt",
-  domain
-    ? `User-agent: *\nAllow: /\nSitemap: ${domain}/sitemap.xml\n`
-    : "User-agent: *\nDisallow: /\n",
+  `User-agent: *\nAllow: /\nSitemap: ${domain}/sitemap.xml\n`,
 );
 await writeFile(
   "dist/sitemap.xml",
-  `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${domain ? pages.map((page) => `<url><loc>${escape(domain + page.path)}</loc></url>`).join("") : ""}</urlset>`,
+  `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${pages.map((page) => `<url><loc>${escape(domain + page.path)}</loc></url>`).join("")}</urlset>`,
 );
 await writeFile(
   "dist/404.html",
@@ -121,7 +128,8 @@ await writeFile(
   }),
 );
 await rm(".prerender", { recursive: true, force: true });
+await import("./check-seo.mjs");
 console.log(
   "Quatro páginas pré-renderizadas. SEO de produção:",
-  domain || "aguardando SITE_URL (prévia noindex)",
+  domain,
 );

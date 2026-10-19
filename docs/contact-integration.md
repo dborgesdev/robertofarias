@@ -35,3 +35,9 @@ Validação compartilhada com repetição obrigatória no servidor; tipos/limite
 O limite em memória é proteção básica e não é distribuído entre instâncias serverless. Antes de abrir a função ao público, configurar rate limiting no WAF da hospedagem para `/api/contact`, conforme o tráfego/limites da conta. Não foi declarada proteção equivalente a CAPTCHA ou infraestrutura distribuída. Cada mensagem só recebe confirmação após resposta positiva com identificador do provedor; isso confirma aceitação para envio, não leitura nem entrega final na caixa postal.
 
 No WhatsApp, os dados são preparados no navegador e o usuário precisa concluir o envio na conversa. A interface não declara mensagem enviada ao simplesmente abrir a URL. Nenhuma mensagem de teste foi enviada a Roberto.
+
+## Domínio definitivo — 19/10/2026
+
+`SITE_URL=https://robertofariasoficial.com.br` no Worker e no build. Esta origem é autorizada pelo handler; www e endereço provisório são redirecionados antes da API. `CONTACT_ALLOWED_ORIGINS` é opcional e não precisa incluir aliases públicos: a página e o formulário operam na mesma origem oficial. Não há CORS aberto nem curinga; requisições de outras origens continuam bloqueadas. As instruções Vercel acima são históricas; o procedimento atual é `cloudflare-deploy.md`.
+
+A consulta de nomes de secrets do Worker nesta rodada retornou lista vazia. Credenciais Resend/remetente continuam pendentes, sem envio real declarado; WhatsApp e mailto permanecem independentes.
