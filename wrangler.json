@@ -8,14 +8,14 @@
   "workers_dev": true,
   "preview_urls": false,
   "vars": {
-    "SITE_URL": "https://robertofarias.smartlocal.workers.dev"
+    "SITE_URL": "https://robertofariasoficial.com.br"
   },
   "assets": {
     "directory": "./dist",
     "binding": "ASSETS",
     "html_handling": "force-trailing-slash",
     "not_found_handling": "404-page",
-    "run_worker_first": ["/api/*"]
+    "run_worker_first": true
   },
   "keep_vars": true
 }

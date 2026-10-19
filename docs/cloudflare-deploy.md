@@ -1,11 +1,12 @@
 # Publicação — Cloudflare Workers
 
-## Destino confirmado em 16/10/2026
+## Destino atual — domínio confirmado em 19/10/2026
 
 - Plataforma: Cloudflare Workers com Static Assets.
 - Conta autenticada: `empreendedorsmart@gmail.com`.
 - Worker autorizado pelo usuário: `robertofarias`. A consulta inicial do Wrangler confirmou que esse Worker ainda não existia.
-- URL pública confirmada pelo deploy: **https://robertofarias.smartlocal.workers.dev**.
+- URL definitiva: **https://robertofariasoficial.com.br**.
+- Endereço provisório histórico: https://robertofarias.smartlocal.workers.dev; passa a responder 301 para a origem oficial.
 - Repositório: `https://github.com/dborgesdev/robertofarias`, produção a partir de `main`.
 
 ## Arquitetura
@@ -14,7 +15,7 @@ React/TypeScript/Vite/Tailwind permanecem iguais. `pnpm build` produz quatro HTM
 
 `wrangler.json` versiona o Worker e o binding `ASSETS`. A camada Static Assets resolve os arquivos e os index.html dos diretórios, força as barras finais e responde 404 para caminhos desconhecidos. O fallback global de SPA não se aplica a este projeto multipágina.
 
-Somente `/api/*` invoca primeiro o Worker. `worker/index.ts` adapta Request/Response para o handler já testado de `api/contact.ts`, com `nodejs_compat`, sem servidor HTTP customizado ou dependência de servidor React. Rotas de API desconhecidas respondem JSON 404. A função Vercel anterior permanece disponível como alternativa, sem ser o destino desta publicação.
+`run_worker_first: true` permite verificar HTTPS e aliases em todas as requisições antes do Static Assets. Apenas os hosts oficial, www oficial e o endereço provisório deste Worker participam do redirecionamento 301, preservando caminho/query. Localhost e outras aplicações não são redirecionados. Não foram criados novos Workers nem alteradas regras globais de zona. Os domínios já vinculados pelo painel são preservados; não há declaração de novas rotas no Wrangler. `worker/index.ts` adapta Request/Response para o handler já testado de `api/contact.ts`, com `nodejs_compat`, sem servidor HTTP customizado ou dependência de servidor React. Rotas de API desconhecidas respondem JSON 404. A função Vercel anterior permanece disponível como alternativa, sem ser o destino desta publicação.
 
 `public/_headers` configura cache imutável de um ano para `/assets/*` com hashes; imagens e vídeos usam um dia, sem `immutable`, para permitir futuras substituições. A política padrão do Cloudflare administra os HTMLs. Credenciais e arquivos locais do Wrangler são ignorados pelo Git.
 
@@ -42,15 +43,15 @@ pnpm build
 pnpm deploy:worker
 ```
 
-A origem confirmada está em `vars.SITE_URL` de `wrangler.json` e é usada no runtime e como padrão do build. Uma variável de ambiente `SITE_URL` tem precedência:
+A origem confirmada está em `vars.SITE_URL` de `wrangler.json` e é usada no runtime e como padrão do build. Uma variável de ambiente `SITE_URL` pode repetir a mesma origem; valor vazio ou diferente interrompe o build:
 
 ```powershell
-$env:SITE_URL = 'https://robertofarias.smartlocal.workers.dev'
+$env:SITE_URL = 'https://robertofariasoficial.com.br'
 pnpm build
 pnpm deploy:worker
 ```
 
-O build de produção gera canonical, OG absoluto, robots e sitemap com a origem confirmada. Para uma prévia noindex, definir `SITE_URL` como string vazia. Nenhum DNS externo foi alterado.
+O build de produção gera canonical, OG absoluto, robots e sitemap com a origem confirmada. `public/robots.txt` bloqueado foi removido: robots e sitemap são gerados pelo build. `scripts/check-seo.mjs` verifica os quatro HTMLs, JSON-LD, imagens e indexação ao terminar o build e antes de qualquer deploy/dry-run. Para desenvolvimento isolado usar localhost; o fluxo de publicação não aceita prévia noindex. Nenhum DNS externo foi alterado.
 
 ## E-mail e variáveis
 

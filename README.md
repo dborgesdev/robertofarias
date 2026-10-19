@@ -1,6 +1,6 @@
 # Roberto Farias — Site oficial
 
-Site editorial em refinamento, com Home, Sobre o Autor, página de Ainda Tenho Estradas e Contato. Conteúdo factual baseado em `docs/project.md` e `docs/source-audit.md`. A atualização de contatos autorizada em 15/10/2026 está em `docs/contact-integration.md`: WhatsApp confirmado como principal canal, e-mail como alternativa, formulário e rota de contato. Direção visual aprovada pelo usuário em 16/10/2026. Publicado em https://robertofarias.smartlocal.workers.dev; pendências editoriais e de integração estão documentadas.
+Site editorial em refinamento, com Home, Sobre o Autor, página de Ainda Tenho Estradas e Contato. Conteúdo factual baseado em `docs/project.md` e `docs/source-audit.md`. A atualização de contatos autorizada em 15/10/2026 está em `docs/contact-integration.md`: WhatsApp confirmado como principal canal, e-mail como alternativa, formulário e rota de contato. Direção visual aprovada pelo usuário em 16/10/2026. Publicado em https://robertofariasoficial.com.br; pendências editoriais e de integração estão documentadas.
 
 ## Rodar e visualizar
 
@@ -46,17 +46,17 @@ Credenciais não usam prefixo `VITE_` nem são exportadas ao cliente. Sem config
 
 ## Build e hospedagem
 
-**Destino aprovado em 16/10/2026: Cloudflare Workers, Worker `robertofarias`, conta `empreendedorsmart@gmail.com`.** O fluxo atual, configuração, variáveis e comandos estão em [docs/cloudflare-deploy.md](docs/cloudflare-deploy.md). `pnpm build` gera `dist/`; `pnpm preview:worker` testa no runtime Workers; `pnpm deploy:check` empacota sem publicar e `pnpm deploy:worker` publica. Somente a API de contato exige execução do Worker; páginas e mídia usam Static Assets. A origem pública confirmada está versionada em `wrangler.json` e alimenta o SEO do build. O texto Vercel abaixo documenta a alternativa anterior.
+**Destino aprovado em 16/10/2026: Cloudflare Workers, Worker `robertofarias`, conta `empreendedorsmart@gmail.com`.** O fluxo atual, configuração, variáveis e comandos estão em [docs/cloudflare-deploy.md](docs/cloudflare-deploy.md). `pnpm build` gera `dist/`; `pnpm preview:worker` testa no runtime Workers; `pnpm deploy:check` empacota sem publicar e `pnpm deploy:worker` publica. O Worker verifica HTTPS e os aliases antes de delegar páginas e mídia ao Static Assets; a API mantém o handler de contato. A origem pública confirmada está versionada em `wrangler.json` e alimenta o SEO do build. O texto Vercel abaixo documenta a alternativa anterior.
 
 `pnpm build` → `dist/`. `wrangler.json` publica Static Assets e `worker/index.ts` adapta `/api/contact`, reutilizando o handler testado. `pnpm preview:worker` testa no runtime Cloudflare. A configuração Vercel anterior permanece como alternativa.
 
-URL confirmada: https://robertofarias.smartlocal.workers.dev. O build usa `SITE_URL` do ambiente ou, por padrão, `vars.SITE_URL` de `wrangler.json`, gerando canonical, OG absoluto e sitemap. Para uma prévia noindex, definir a variável de ambiente como string vazia. Um futuro domínio próprio requer confirmação e novo build. Caminhos desconhecidos respondem 404, sem fallback global de SPA.
+URL definitiva confirmada em 19/10/2026: https://robertofariasoficial.com.br. O build usa `SITE_URL` do ambiente ou, por padrão, `vars.SITE_URL` de `wrangler.json`, gerando canonical, OG absoluto e sitemap. O build recusa origem vazia ou divergente de `wrangler.json`; a verificação de SEO roda no build e antes do deploy. `www`, HTTP e o endereço provisório redirecionam com 301 para HTTPS sem www, preservando caminho e query. Referências históricas ao primeiro deploy permanecem na documentação. Caminhos desconhecidos respondem 404, sem fallback global de SPA.
 
 ## Materiais e pendências
 
 Arquivos recebidos em `public/` preservados, incluindo as capas originais completas. O acervo contém WebPs e dois MP4s; o ZIP original citado pela auditoria não está no checkout. Derivados responsivos têm nomes próprios. Os Heroes usam uma composição artística autorizada a partir do retrato original, identificada como tal. Cenários gerados não são registros documentais da trajetória. A banda aparece no capítulo da música; cavalo e moto têm destaque na narrativa visual de novas experiências, sem inventar local ou data.
 
-Pendências externas: credenciais/remetente/DNS do e-mail; domínio; aprovação editorial e direitos das mídias; subtítulo conflitante 40/60; disponibilidade, preço, pagamento, frete e URLs comerciais; dados bibliográficos e sinopses oficiais; transcrição/legendas dos vídeos. A pendência de autorização de WhatsApp foi resolvida nesta rodada.
+Pendências externas: credenciais/remetente/DNS do e-mail; aprovação editorial e direitos das mídias; subtítulo conflitante 40/60; disponibilidade, preço, pagamento, frete e URLs comerciais; dados bibliográficos e sinopses oficiais; transcrição/legendas dos vídeos. A pendência de autorização de WhatsApp foi resolvida nesta rodada.
 
 Testes de API usam provedor simulado e não enviam e-mails. QA real de navegação, formulário e visual está documentado em `docs/qa-approved-direction.md`. A primeira publicação foi verificada no navegador em desktop/mobile; ver `docs/qa-cloudflare.md`. Não houve entrega real de e-mail, teste em aparelho físico ou certificação WCAG.
 

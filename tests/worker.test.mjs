@@ -41,6 +41,36 @@ test("Worker serves assets and rejects unknown API routes without SPA fallback",
   assert.equal(missing.status, 404);
 });
 
+test("Canonical redirects preserve paths and queries, without loops or affecting other hosts", async () => {
+  const official = "https://robertofariasoficial.com.br";
+  const env = { ...environment, SITE_URL: official };
+  for (const host of ["http://robertofariasoficial.com.br", "http://www.robertofariasoficial.com.br", "https://www.robertofariasoficial.com.br", "https://robertofarias.smartlocal.workers.dev"]) {
+    for (const path of ["/", "/sobre/?origem=teste", "/robots.txt", "/api/contact"]) {
+      const response = await worker.fetch(new Request(host + path), env);
+      assert.equal(response.status, 301);
+      assert.equal(response.headers.get("Location"), official + path);
+    }
+  }
+  for (const host of [official, "http://localhost:8787", "https://other.smartlocal.workers.dev"]) {
+    const response = await worker.fetch(new Request(host + "/sobre/"), env);
+    assert.equal(response.status, 200);
+    assert.equal(response.headers.get("Location"), null);
+  }
+});
+
+test("Official contact origin reaches validation; obsolete and foreign origins are rejected", async () => {
+  const official = "https://robertofariasoficial.com.br";
+  const env = { ...environment, SITE_URL: official };
+  const make = (origin) => new Request(official + "/api/contact", {
+    method: "POST", headers: { "content-type": "application/json", origin, "sec-fetch-site": "same-origin" },
+    body: JSON.stringify({ ...payload(), email: "invalid" }),
+  });
+  assert.equal((await worker.fetch(make(official), env)).status, 422);
+  for (const origin of ["https://robertofarias.smartlocal.workers.dev", "https://www.robertofariasoficial.com.br", "https://foreign.example.test"]) {
+    assert.equal((await worker.fetch(make(origin), env)).status, 403);
+  }
+});
+
 test("Worker preserves truthful unavailable, method and origin responses", async () => {
   const missing = await worker.fetch(request(), { ASSETS: environment.ASSETS });
   assert.equal(missing.status, 503);

@@ -1,0 +1,13 @@
+# Domínio e SEO técnico — 19/10/2026
+
+Origem definitiva confirmada: **https://robertofariasoficial.com.br**, HTTPS sem www. Fonte operacional única: `vars.SITE_URL` em `wrangler.json`. O build recusa `SITE_URL` vazia ou divergente. O domínio provisório aparece apenas na regra restrita de migração e nos registros históricos.
+
+As quatro rotas `/`, `/sobre/`, `/contato/` e `/livros/ainda-tenho-estradas/` recebem HTML completo, title/description exclusivos, canonical, og:url, OG/Twitter com imagem absoluta existente e JSON-LD factual. Person usa `/#autor`; AboutPage e ContactPage referenciam a mesma pessoa; Book tem identificador próprio e referencia o autor. Não foram adicionados preço, estoque, avaliação, ISBN ou data de publicação.
+
+`public/robots.txt` com Disallow foi removido. O gerador escreve `dist/robots.txt` com Allow e sitemap oficial; a página 404 mantém noindex. `scripts/check-seo.mjs` verifica os HTMLs, JSON-LD, favicon, imagens, robots e quatro URLs do sitemap no fim do build e antes de deploy/dry-run. Alterações no HTML para uma origem obsoleta e robots bloqueado foram rejeitadas em teste negativo, com restauração do artefato em seguida. Prévia local usa localhost; publicar diretamente um build incompleto do Vite não passa por essa verificação.
+
+O Worker executa antes dos assets para aplicar 301 somente aos hosts conhecidos (www, endereço provisório e HTTP do domínio oficial). Preserva pathname e query, sem aceitar destino fornecido pelo visitante. Delega o restante ao ASSETS, preservando rotas com barra final, cache e 404. Os vínculos existentes de domínio no painel não são substituídos por novas rotas. Esta escolha segue a [documentação de execução antes dos assets](https://developers.cloudflare.com/workers/static-assets/routing/worker-script/); `_redirects` não oferece [redirecionamento por domínio](https://developers.cloudflare.com/workers/static-assets/redirects/).
+
+Validação anterior à publicação: typecheck, lint, 18 testes, build e dry-run aprovados. Os novos testes cobrem os redirects, ausência de loop, preservação de parâmetros, localhost/outros hosts e aceitação do domínio oficial pela API com rejeição de origens obsoletas/externas. Provedor de e-mail simulado; nenhum envio real declarado. A inspeção remota encontrou apenas SITE_URL entre os bindings de contato e lista de secrets vazia.
+
+Após o deploy, conferir no domínio oficial: quatro HTMLs/metadados, `/robots.txt`, `/sitemap.xml`, favicon e imagens OG, redirects de HTTP/www/workers.dev e `/build-info.json` igual ao commit de main. Resultados públicos e identificadores finais são apresentados no relatório de entrega; este documento não antecipa sucesso do deploy.
