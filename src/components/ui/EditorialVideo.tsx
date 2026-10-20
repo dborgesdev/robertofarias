@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import type { EditorialVideoSource } from "../../data/videos";
 
-export default function EditorialVideo({ media }: { media: EditorialVideoSource }) {
+export default function EditorialVideo({ media, split = false }: { media: EditorialVideoSource; split?: boolean }) {
   const video = useRef<HTMLVideoElement>(null);
   const [started, setStarted] = useState(false);
   const [ended, setEnded] = useState(false);
@@ -19,9 +19,10 @@ export default function EditorialVideo({ media }: { media: EditorialVideoSource 
     }
   }
   return (
-    <div className="video-stage">
+    <div className={`video-stage${split ? " video-stage--split" : ""}`}>
       <noscript><style>{`.video-play{display:none!important}`}</style></noscript>
       <div className={`video-frame ${started ? "is-playing" : ""}`}>
+        {split && <img className="video-portrait" src="/images/roberto-retrato-web.webp" width="702" height="916" loading="lazy" alt="" aria-hidden="true" />}
         <video
           ref={video} controls playsInline preload="none"
           poster={media.poster} width={media.width} height={media.height} tabIndex={0}
@@ -41,7 +42,7 @@ export default function EditorialVideo({ media }: { media: EditorialVideoSource 
         )}
       </div>
       {playError && <p className="video-error" role="status">Não foi possível reproduzir o vídeo. Tente pelos controles ou <a href={media.src}>abra o vídeo original</a>.</p>}
-      <a className="video-fallback" href={media.src}>Abrir vídeo de {media.title} ↗</a>
+      {!split && <a className="video-fallback" href={media.src}>Abrir vídeo de {media.title} ↗</a>}
     </div>
   );
 }

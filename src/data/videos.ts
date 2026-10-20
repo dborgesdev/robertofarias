@@ -16,9 +16,9 @@ export const editorialVideos = {
   },
   estradas: {
     title: "Ainda Tenho Estradas",
-    src: "/videos/ainda-tenho-estradas.mp4",
+    src: "/videos/ainda-tenho-estradas-autor.mp4",
     poster: "/images/poster-estradas.jpg",
-    width: 540, height: 810,
+    width: 360, height: 640,
     label: "Vídeo promocional de Ainda Tenho Estradas",
   },
   viva: {

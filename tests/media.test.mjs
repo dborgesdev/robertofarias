@@ -3,14 +3,19 @@ import assert from "node:assert/strict";
 import { access } from "node:fs/promises";
 import { render } from "../.qa/tests/entry.js";
 
-test("Home presents only Viva video; book distinguishes writing film from its promotional film", () => {
+test("Home preserves original Estradas block and adds Viva; book preserves only Estradas in Video", () => {
   const home = render("/");
   const book = render("/livros/ainda-tenho-estradas/");
   const sources = (html) => [...html.matchAll(/<source src="([^"]+\.mp4)"/g)].map((match) => match[1]);
-  assert.deepEqual(sources(home), ["/videos/viva-seus-60.mp4"]);
-  assert.deepEqual(sources(book), ["/videos/ainda-tenho-estradas-autor.mp4", "/videos/ainda-tenho-estradas.mp4"]);
+  assert.deepEqual(sources(home), ["/videos/ainda-tenho-estradas-autor.mp4", "/videos/viva-seus-60.mp4"]);
+  assert.ok(home.includes("Uma apresentação de Ainda Tenho Estradas."));
+  assert.ok(home.includes("Assista ao material de divulgação da obra e conheça a mensagem que Roberto deseja compartilhar."));
+  assert.equal((home.match(/class="video-portrait"/g) || []).length, 2);
+  assert.deepEqual(sources(book), ["/videos/ainda-tenho-estradas-autor.mp4", "/videos/ainda-tenho-estradas-autor.mp4"]);
   const writing = book.match(/<section class="section writing-origin">(.*?)<\/section>/s)[1];
   assert.ok(writing.includes("/videos/ainda-tenho-estradas-autor.mp4"));
+  const videoSection = book.match(/<section id="videos"(.*?)<\/section>/s)[1];
+  assert.deepEqual(sources(videoSection), ["/videos/ainda-tenho-estradas-autor.mp4"]);
   assert.ok(!book.match(/<source src="\/videos\/viva/));
 });
 
