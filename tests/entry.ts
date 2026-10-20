@@ -1,5 +1,6 @@
 export { createContactHandler } from "../api/contact";
 export { default as worker } from "../worker/index";
+export { render } from "../src/entry-server";
 export {
   normalizeContact,
   validateContact,

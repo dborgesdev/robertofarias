@@ -2,41 +2,28 @@ import { biographyChapters } from "../../data/biography";
 import { useChapterTimeline } from "../../lib/useChapterTimeline";
 import { ActionLink, Eyebrow } from "../ui/Editorial";
 import ArtScene from "../ui/ArtScene";
-import SymbolicImage from "../ui/SymbolicImage";
 const captions = [
-  "Retrato atual e horizonte ilustrado",
+  "Roberto e o futebol · acervo pessoal",
   "Banda Júpiter 4 · acervo pessoal",
-  "Roberto Farias · retrato do autor",
+  "Roberto Farias com um livro · imagem fornecida pelo autor",
   "O encontro com a escrita · ilustração conceitual",
 ];
 function ChapterImage({ index }: { index: number }) {
-  return index === 0 ? (
-    <div className="timeline-memory">
-      <SymbolicImage scene="coast" />
-      <img
-        className="timeline-memory-portrait"
-        src="/images/roberto-retrato-web.webp"
-        width="702"
-        height="916"
-        loading="lazy"
-        alt="Retrato atual de Roberto Farias, do acervo pessoal"
-      />
-    </div>
-  ) : index === 3 ? (
+  return index === 3 ? (
     <ArtScene scene="writing" />
   ) : (
     <img
       src={
-        index === 1
+        index === 0 ? "/images/roberto-futebol.webp" : index === 1
           ? "/images/banda-jupiter-4.webp"
-          : "/images/roberto-retrato-web.webp"
+          : "/images/trajetoria.webp"
       }
-      width={index === 1 ? 1400 : 702}
-      height={index === 1 ? 941 : 916}
+      width={index === 0 ? 899 : index === 1 ? 1400 : 879}
+      height={index === 0 ? 905 : index === 1 ? 941 : 1093}
       alt={
-        index === 1
+        index === 0 ? "Registro antigo de Roberto com uma bola, em fotografia com texto sobre futebol" : index === 1
           ? "Jáder, Luiz Paulo, Roberto Farias e Flávio, da Banda Júpiter 4"
-          : "Retrato de Roberto Farias"
+          : "Roberto Farias de chapéu, segurando um livro junto à janela"
       }
       loading="lazy"
     />
