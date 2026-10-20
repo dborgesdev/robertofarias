@@ -4,7 +4,7 @@ import { acquisitionLink } from "../../data/contact";
 import { ActionLink, Eyebrow } from "../ui/Editorial";
 export default function BookHero() {
   return (
-    <section className="book-hero scene-dark">
+    <section className="book-hero scene-dark min-h-[calc(100vh-80px)]">
       <ArtScene scene="road" eager />
       <div className="container">
         <nav className="breadcrumb" aria-label="Você está aqui">

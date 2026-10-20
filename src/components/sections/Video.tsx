@@ -38,9 +38,6 @@ export default function Video({ bookPage = false }: { bookPage?: boolean }) {
           <p className="small-note">
             Reproduza quando quiser, com os controles do vídeo.
           </p>
-          <span className="video-art-credit">
-            Cenário · ilustração conceitual
-          </span>
         </div>
         <div className="video-stage" data-reveal="image">
           <div className={`video-frame ${started ? "is-playing" : ""}`}>
@@ -66,7 +63,10 @@ export default function Video({ bookPage = false }: { bookPage?: boolean }) {
               onEnded={() => setStarted(false)}
               aria-label="Vídeo promocional de Ainda Tenho Estradas"
             >
-              <source src="/videos/ainda-tenho-estradas.mp4" type="video/mp4" />
+              <source
+                src="/videos/ainda-tenho-estradas-autor.mp4"
+                type="video/mp4"
+              />
               Seu navegador não reproduz este vídeo.{" "}
               <a href="/videos/ainda-tenho-estradas.mp4">
                 Abrir vídeo de Ainda Tenho Estradas
