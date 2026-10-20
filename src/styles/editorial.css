@@ -807,3 +807,20 @@
   .life-photo-1 { margin-top: 25px; }
   .life-photo-2 { margin-top: 160px; }
 }
+
+/* Original wide presentation, isolated from the valid WritingOrigin portrait player. */
+.video-stage--split { max-width: none; margin-inline: 0; }
+.video-stage--split .video-frame { aspect-ratio: 16/10; }
+.video-stage--split video { width: 48%; height: 100%; max-height: 500px; }
+.video-stage--split .video-portrait {
+  width: 52%; height: 100%; object-fit: cover; object-position: center 75%; order: 2;
+}
+.video-stage--split .is-playing .video-portrait { display: none; }
+.video-stage--split .is-playing video { width: 100%; }
+.video-stage--split .video-play { top: 50%; bottom: auto; transform: translate(-50%, -50%); }
+.video-grid--additional { margin-top: 70px; padding-top: 65px; border-top: 1px solid #f4d7a644; }
+@media (max-width: 767px) {
+  .video-stage--split .video-frame { aspect-ratio: 4/3; }
+  .video-stage--split video { max-height: none; }
+  .video-grid--additional { margin-top: 45px; padding-top: 45px; }
+}
