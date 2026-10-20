@@ -1,18 +1,19 @@
 import ArtScene from "../ui/ArtScene";
 import { Eyebrow } from "../ui/Editorial";
+import EditorialVideo from "../ui/EditorialVideo";
+import { editorialVideos } from "../../data/videos";
 export default function WritingOrigin() {
   return (
     <section className="section writing-origin">
       <ArtScene scene="paper" />
       <div className="container">
-        <div data-reveal="rise">
+        <div className="writing-origin-copy" data-reveal="rise">
           <Eyebrow>Por trás das páginas</Eyebrow>
           <h2>
             Por que escrever
             <br />
             sobre <em>continuar?</em>
           </h2>
-        </div>
         <p>
           A aposentadoria trouxe a Roberto uma pergunta que não saiu da cabeça.
           Ao ver amigos e colegas se afastarem do convívio social, ele percebeu
@@ -21,6 +22,11 @@ export default function WritingOrigin() {
           abrir uma conversa e lembrar que cada nova fase pode guardar seus
           próprios caminhos.
         </p>
+        </div>
+        <figure className="writing-origin-film" data-reveal="image">
+          <EditorialVideo media={editorialVideos.writing} />
+          <figcaption>Ainda Tenho Estradas · A origem da escrita</figcaption>
+        </figure>
       </div>
       <span className="scene-credit">
         Caderno e bússola · ilustração conceitual

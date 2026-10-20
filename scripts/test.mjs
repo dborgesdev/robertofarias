@@ -7,7 +7,7 @@ await build({
 });
 const result = spawnSync(
   process.execPath,
-  ["--test", "tests/contact.test.mjs", "tests/worker.test.mjs"],
+  ["--test", "tests/contact.test.mjs", "tests/worker.test.mjs", "tests/media.test.mjs"],
   { stdio: "inherit" },
 );
 process.exitCode = result.status ?? 1;
