@@ -1,29 +1,37 @@
 import { biographyChapters } from "../../data/biography";
 import { useChapterTimeline } from "../../lib/useChapterTimeline";
 import { ActionLink, Eyebrow } from "../ui/Editorial";
-import ArtScene from "../ui/ArtScene";
+
 const captions = [
   "Roberto e o futebol · acervo pessoal",
   "Banda Júpiter 4 · acervo pessoal",
-  "Roberto Farias com um livro · imagem fornecida pelo autor",
-  "O encontro com a escrita · ilustração conceitual",
+  "Roberto Farias · imagem do autor",
+  "O encontro com a escrita",
 ];
 function ChapterImage({ index }: { index: number }) {
   return index === 3 ? (
-    <ArtScene scene="writing" />
+    <img
+      src="/images/encontro-escrita.webp"
+      alt="Roberto Farias no escritório com seus livros"
+      loading="lazy"
+    />
   ) : (
     <img
       src={
-        index === 0 ? "/images/roberto-futebol.webp" : index === 1
-          ? "/images/banda-jupiter-4.webp"
-          : "/images/trajetoria.webp"
+        index === 0
+          ? "/images/roberto-futebol.webp"
+          : index === 1
+            ? "/images/banda-jupiter-4.webp"
+            : "/images/trajetoria.webp"
       }
       width={index === 0 ? 899 : index === 1 ? 1400 : 879}
       height={index === 0 ? 905 : index === 1 ? 941 : 1093}
       alt={
-        index === 0 ? "Registro antigo de Roberto com uma bola, em fotografia com texto sobre futebol" : index === 1
-          ? "Jáder, Luiz Paulo, Roberto Farias e Flávio, da Banda Júpiter 4"
-          : "Roberto Farias de chapéu, segurando um livro junto à janela"
+        index === 0
+          ? "Registro antigo de Roberto com uma bola, em fotografia com texto sobre futebol"
+          : index === 1
+            ? "Jáder, Luiz Paulo, Roberto Farias e Flávio, da Banda Júpiter 4"
+            : "Roberto Farias de chapéu, segurando um livro junto à janela"
       }
       loading="lazy"
     />
