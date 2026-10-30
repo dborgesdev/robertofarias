@@ -3,8 +3,8 @@ import Manifesto from "../components/sections/Manifesto";
 import Works from "../components/sections/Works";
 import Biography from "../components/sections/Biography";
 import LifeGallery from "../components/sections/LifeGallery";
-import Quote from "../components/sections/Quote";
 import Video from "../components/sections/Video";
+import WritingOrigin from "../components/sections/WritingOrigin";
 import Contact from "../components/sections/Contact";
 export default function HomePage() {
   return (
@@ -14,7 +14,7 @@ export default function HomePage() {
       <Works />
       <Biography />
       <LifeGallery />
-      <Quote />
+      <WritingOrigin />
       <Video />
       <Contact />
     </>

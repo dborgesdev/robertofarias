@@ -1,0 +1,50 @@
+/* Shared portrait cinema: media retains its own intrinsic aspect ratio. */
+.video-stage { min-width: 0; width: min(100%, 310px); max-width: none; margin-inline: auto; }
+.video-frame { position: relative; overflow: hidden; display: block; aspect-ratio: var(--film-ratio); border: 0; border-radius: 3px; background: transparent; box-shadow: 0 22px 60px #0004; }
+.video-frame video, .video-cover { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+.video-frame video { visibility: hidden; background: transparent; }
+.video-frame.is-playing video { visibility: visible; }
+.video-cover { z-index: 2; }
+.video-play { position: absolute; z-index: 3; display: flex; align-items: center; border-radius: 50%; color: #fff9ec; cursor: pointer; inset: 50% auto auto 50%; transform: translate(-50%, -50%); padding: 0; width: 76px; height: 76px; justify-content: center; background: #102c26e8; border: 1px solid #ffe4b8b3; box-shadow: 0 4px 28px #0005; transition: background 200ms, box-shadow 200ms; }
+.video-play:hover { background: #803b24; box-shadow: 0 4px 35px #0007; }
+.video-play:focus-visible { outline: 3px solid #fff3d6; outline-offset: 6px; box-shadow: 0 0 0 9px #102c26; }
+.video-play .play-symbol { width: 48px; height: 48px; border: 0; border-radius: 0; }
+.audiovisual { padding-block: 48px 80px; background: #102a24; }
+.video-atmosphere:after { background: linear-gradient(#102a24 0%, #102a24e8 45%, #102a24c9 75%, #102a24 100%); }
+.video-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(40px, 7vw, 110px); max-width: 1080px; }
+.video-intro { position: relative; max-width: 500px; }
+.video-grid--reverse .video-intro { grid-column: 2; grid-row: 1; }
+.video-grid--reverse .video-media { grid-column: 1; grid-row: 1; }
+.video-grid--additional { margin-top: 96px; padding-top: 0; }
+.writing-origin--film { color: #fff9ec; background: #102a24; padding-block: 80px 48px; }
+.writing-origin--film > .art-scene { width: 100%; opacity: 0.18; }
+.writing-origin--film:before { background: linear-gradient(#102a24e8, #102a24b8 45%, #102a24); }
+.writing-origin--film > .container { padding-left: 0; max-width: 1080px; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(40px, 7vw, 110px); }
+.writing-origin--film .eyebrow, .writing-origin--film em { color: #f2ae82; }
+.writing-origin--film h2 { font-size: clamp(2.6rem, 3.65vw, 3.5rem); }
+.writing-origin--film .video-stage { min-width: 0; width: min(100%, 310px); max-width: none; }
+.writing-origin--film .video-frame { border: 0; box-shadow: 0 22px 60px #0004; }
+.writing-origin--film .video-play { padding: 0; }
+.writing-origin--film .play-symbol { width: 48px; height: 48px; }
+.writing-origin--film figcaption { text-align: center; color: #e0d5bc; }
+.writing-origin--film .scene-credit { color: #e0d5bc; }
+@media (max-width: 900px) {
+  .video-grid, .writing-origin--film > .container { gap: 36px; }
+  .video-stage, .writing-origin--film .video-stage { min-width: 0; width: min(100%, 270px); }
+}
+@media (max-width: 767px) {
+  .video-grid, .writing-origin--film > .container { display: flex; flex-direction: column; gap: 30px; }
+  .video-intro { margin-bottom: 0; }
+  .video-media, .writing-origin-film { width: 100%; }
+  .writing-origin--film .writing-origin-film { margin-top: 0; }
+  .video-stage, .writing-origin--film .video-stage { min-width: 0; width: min(100%, 260px); }
+  .video-grid--additional { margin-top: 64px; padding-top: 0; }
+  .writing-origin--film { padding-block: 60px 50px; }
+  .audiovisual { padding-block: 50px 60px; }
+}
+.writing-origin--film .scene-credit { background: #102a24; }
+
+.video-error { padding: 15px; margin-top: 15px; background: #f8edda; color: #652a1c; }
+.video-error a { text-decoration: underline; }
+
+.writing-origin--film .small-note { color: #e3ddcd; }
