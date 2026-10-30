@@ -10,7 +10,7 @@ export default function BookPage() {
   return (
     <>
       <BookHero />
-      <WritingOrigin />
+      <WritingOrigin withVideo={false} />
       <ReadingIdeas />
       <Video bookPage />
       <PersonalMotivation />

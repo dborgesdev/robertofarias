@@ -7,6 +7,7 @@
 @import "./styles/book.css";
 @import "./styles/contact.css";
 @import "./styles/motion.css";
+@import "./styles/films.css";
 @theme {
   --color-paper: #f7f2e8;
   --color-ink: #25241f;
