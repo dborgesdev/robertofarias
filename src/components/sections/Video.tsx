@@ -10,7 +10,7 @@ export default function Video({ bookPage = false }: { bookPage?: boolean }) {
         <ArtScene scene="road" />
       </div>
       <div
-        className={`container video-grid ${bookPage ? "video-grid" : "video-grid--reverse"}`}
+        className={`container video-grid ${bookPage ? "" : "video-grid--reverse"}`}
       >
         <div className="video-intro" data-reveal="rise">
           <Eyebrow>O livro em vídeo</Eyebrow>
@@ -29,7 +29,11 @@ export default function Video({ bookPage = false }: { bookPage?: boolean }) {
           </p>
         </div>
         <div className="video-media" data-reveal="image">
-          <EditorialVideo media={bookPage ? editorialVideos.estradas : editorialVideos.writing} />
+          <EditorialVideo
+            media={
+              bookPage ? editorialVideos.estradas : editorialVideos.writing
+            }
+          />
         </div>
       </div>
       {!bookPage && (
