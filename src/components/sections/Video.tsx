@@ -29,7 +29,7 @@ export default function Video({ bookPage = false }: { bookPage?: boolean }) {
           </p>
         </div>
         <div className="video-media" data-reveal="image">
-          <EditorialVideo media={editorialVideos.writing} />
+          <EditorialVideo media={bookPage ? editorialVideos.estradas : editorialVideos.writing} />
         </div>
       </div>
       {!bookPage && (
